@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Play } from "lucide-react";
+import { Link } from "wouter";
 
 /**
  * Peter Helm Portfolio - Home Page
@@ -19,8 +20,8 @@ export default function Home() {
           <div className="text-2xl font-bold text-accent">PH</div>
           <div className="hidden md:flex gap-8">
             <a href="#about" className="nav-link">About</a>
+            <a href="#work" className="nav-link">Work</a>
             <a href="#expertise" className="nav-link">Expertise</a>
-            <a href="#projects" className="nav-link">Projects</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
           <div className="flex gap-4">
@@ -54,9 +55,9 @@ export default function Home() {
                 I build workflows that scale. From HighLevel and Housecall Pro integrations to custom API automation, I transform messy business processes into reliable, repeatable systems that drive revenue.
               </p>
               <div className="flex gap-4">
-                <button className="cta-button">
-                  View My Work <ArrowRight className="inline ml-2" size={18} />
-                </button>
+                <a href="#work" className="cta-button inline-flex items-center">
+                  View My Work <ArrowRight className="ml-2" size={18} />
+                </a>
                 <a href="#contact" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200">
                   Get in Touch
                 </a>
@@ -72,6 +73,64 @@ export default function Home() {
                   alt="Peter Helm"
                   className="relative rounded-lg shadow-lg w-full h-auto"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider"></div>
+
+      {/* Portfolio Showcase Section */}
+      <section id="work" className="py-20 md:py-32 bg-secondary/30">
+        <div className="container">
+          <h2 className="section-title mb-4">View My Work</h2>
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
+            Explore my portfolio organized by category. Click on any category to see detailed case studies and demonstrations.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* N8N & AI Agents Card */}
+            <Link href="/work/n8n">
+              <div className="group card-minimal cursor-pointer hover:border-accent transition-colors">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-3xl">🤖</div>
+                  <h3 className="text-xl font-bold group-hover:text-accent transition-colors">N8N & AI Agents</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Automation workflows and AI agent integrations. Watch detailed walkthroughs of complex automations.
+                </p>
+                <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all">
+                  <Play size={16} />
+                  View Videos
+                </div>
+              </div>
+            </Link>
+
+            {/* Additional Portfolio Categories - Placeholder */}
+            <div className="card-minimal opacity-50 cursor-not-allowed">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-3xl">🔗</div>
+                <h3 className="text-xl font-bold">API Integrations</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                Coming soon. Custom API integrations and workflow automations.
+              </p>
+              <div className="text-muted-foreground text-sm font-semibold">
+                Coming Soon
+              </div>
+            </div>
+
+            <div className="card-minimal opacity-50 cursor-not-allowed">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="text-3xl">📊</div>
+                <h3 className="text-xl font-bold">Data Pipelines</h3>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                Coming soon. Data processing and analytics workflows.
+              </p>
+              <div className="text-muted-foreground text-sm font-semibold">
+                Coming Soon
               </div>
             </div>
           </div>
