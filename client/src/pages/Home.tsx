@@ -1,14 +1,13 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Mail, Play } from "lucide-react";
 import { Link } from "wouter";
 
 /**
  * Peter Helm Portfolio - Home Page
  * Design: Minimalist Tech Elegance
- * - Clean typography hierarchy with Playfair Display for titles
- * - Off-white background with deep slate blue accents
- * - Asymmetric layouts with generous whitespace
- * - Minimal animations and subtle hover effects
+ * Positioning: AI Workflow & Operations Builder
+ * - Professional, practical, recruiter-ready
+ * - Dark/neutral background with green/blue AI accents
+ * - Clean typography and section spacing
  */
 
 export default function Home() {
@@ -20,16 +19,13 @@ export default function Home() {
           <div className="text-2xl font-bold text-accent">PH</div>
           <div className="hidden md:flex gap-8">
             <a href="#about" className="nav-link">About</a>
-            <a href="#work" className="nav-link">Work</a>
-            <a href="#expertise" className="nav-link">Expertise</a>
+            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#services" className="nav-link">Services</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
           <div className="flex gap-4">
-            <a href="https://linkedin.com" className="text-muted-foreground hover:text-accent transition-colors">
+            <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="text-muted-foreground hover:text-accent transition-colors">
               <Linkedin size={20} />
-            </a>
-            <a href="https://github.com" className="text-muted-foreground hover:text-accent transition-colors">
-              <Github size={20} />
             </a>
           </div>
         </div>
@@ -37,7 +33,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-20">
           <img 
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-abstract-tech-8F6M5LueTpeM9gQBrY22Zu.webp"
             alt="Background"
@@ -49,17 +45,17 @@ export default function Home() {
             {/* Left: Text Content */}
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                GTM Effectiveness & <span className="text-accent">Automation</span> Specialist
+                AI Workflow & <span className="text-accent">Operations</span> Builder
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I build workflows that scale. From HighLevel and Housecall Pro integrations to custom API automation, I transform messy business processes into reliable, repeatable systems that drive revenue.
+                I design and build practical AI-powered workflows, automation systems, and operational tools for teams that need cleaner processes, faster follow-up, and better visibility.
               </p>
               <div className="flex gap-4">
-                <a href="#work" className="cta-button inline-flex items-center">
-                  View My Work <ArrowRight className="ml-2" size={18} />
+                <a href="#projects" className="cta-button inline-flex items-center">
+                  View Projects <ArrowRight className="ml-2" size={18} />
                 </a>
                 <a href="#contact" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200">
-                  Get in Touch
+                  Contact Me
                 </a>
               </div>
             </div>
@@ -73,64 +69,6 @@ export default function Home() {
                   alt="Peter Helm"
                   className="relative rounded-lg shadow-lg w-full h-auto"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Portfolio Showcase Section */}
-      <section id="work" className="py-20 md:py-32 bg-secondary/30">
-        <div className="container">
-          <h2 className="section-title mb-4">View My Work</h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            Explore my portfolio organized by category. Click on any category to see detailed case studies and demonstrations.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* N8N & AI Agents Card */}
-            <Link href="/work/n8n">
-              <div className="group card-minimal cursor-pointer hover:border-accent transition-colors">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="text-3xl">🤖</div>
-                  <h3 className="text-xl font-bold group-hover:text-accent transition-colors">N8N & AI Agents</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Automation workflows and AI agent integrations. Watch detailed walkthroughs of complex automations.
-                </p>
-                <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all">
-                  <Play size={16} />
-                  View Videos
-                </div>
-              </div>
-            </Link>
-
-            {/* Additional Portfolio Categories - Placeholder */}
-            <div className="card-minimal opacity-50 cursor-not-allowed">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-3xl">🔗</div>
-                <h3 className="text-xl font-bold">API Integrations</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Coming soon. Custom API integrations and workflow automations.
-              </p>
-              <div className="text-muted-foreground text-sm font-semibold">
-                Coming Soon
-              </div>
-            </div>
-
-            <div className="card-minimal opacity-50 cursor-not-allowed">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-3xl">📊</div>
-                <h3 className="text-xl font-bold">Data Pipelines</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Coming soon. Data processing and analytics workflows.
-              </p>
-              <div className="text-muted-foreground text-sm font-semibold">
-                Coming Soon
               </div>
             </div>
           </div>
@@ -157,31 +95,31 @@ export default function Home() {
             <div>
               <h2 className="section-title">About Me</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I'm a systems thinker obsessed with eliminating friction. Over the past few years, I've built dozens of workflows that handle high execution volumes—translating messy business processes into clean, automated systems.
+                I'm focused on the intersection of AI operations, workflow automation, revenue operations, and business systems. My work combines process mapping, structured outputs, automation logic, CRM/lifecycle systems, and operational reporting to turn ambiguous workflows into usable systems.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                My sweet spot is GTM effectiveness: I find workflow bottlenecks, redesign processes, and build integrations using APIs, webhooks, and JSON. I've worked in 0→1 environments where precision and ownership matter.
+                I build with n8n, OpenAI, and modern data tools. I design human-in-the-loop systems that leverage AI without replacing judgment. I turn messy business processes into clean, documented, scalable automation workflows.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Workflow Automation</h3>
-                    <p className="text-muted-foreground">Built dozens of automations handling high execution volumes</p>
+                    <h3 className="font-semibold text-foreground mb-1">AI Workflow Design</h3>
+                    <p className="text-muted-foreground">Build practical AI-powered workflows with structured outputs and human review</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">API & Integration Expertise</h3>
-                    <p className="text-muted-foreground">Proficient with APIs, webhooks, JSON, and custom integrations</p>
+                    <h3 className="font-semibold text-foreground mb-1">Operations & Systems</h3>
+                    <p className="text-muted-foreground">Design CRM automations, lifecycle systems, and operational reporting</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Process Design & Debugging</h3>
-                    <p className="text-muted-foreground">Translate business needs into reliable, scalable systems</p>
+                    <h3 className="font-semibold text-foreground mb-1">Process Mapping & Automation</h3>
+                    <p className="text-muted-foreground">Translate messy business processes into clean, documented automation workflows</p>
                   </div>
                 </div>
               </div>
@@ -193,128 +131,275 @@ export default function Home() {
       {/* Divider */}
       <div className="divider"></div>
 
-      {/* Expertise Section */}
-      <section id="expertise" className="py-20 md:py-32">
-        <div className="container">
-          <h2 className="section-title text-center mb-16">Core Expertise</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">⚙️</div>
-              <h3 className="text-xl font-semibold mb-3">GTM Systems</h3>
-              <p className="text-muted-foreground">
-                Design and optimize go-to-market workflows. Eliminate friction in sales, marketing, and operations processes.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">🔗</div>
-              <h3 className="text-xl font-semibold mb-3">API Integration</h3>
-              <p className="text-muted-foreground">
-                Connect disparate systems using APIs, webhooks, and custom code. HighLevel, Housecall Pro, Sheets, and more.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">📊</div>
-              <h3 className="text-xl font-semibold mb-3">Process Automation</h3>
-              <p className="text-muted-foreground">
-                Build reliable automations that scale. Debug failures, improve reliability, and document for handoff.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">🔧</div>
-              <h3 className="text-xl font-semibold mb-3">Workflow Design</h3>
-              <p className="text-muted-foreground">
-                Translate messy business processes into clean, structured workflows. End-to-end ownership and documentation.
-              </p>
-            </div>
-
-            {/* Card 5 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">📈</div>
-              <h3 className="text-xl font-semibold mb-3">Scaling & Reliability</h3>
-              <p className="text-muted-foreground">
-                Handle high execution volumes. Monitor, debug, and improve system reliability over time.
-              </p>
-            </div>
-
-            {/* Card 6 */}
-            <div className="card-minimal">
-              <div className="text-4xl font-bold text-accent mb-4">📝</div>
-              <h3 className="text-xl font-semibold mb-3">Documentation</h3>
-              <p className="text-muted-foreground">
-                Clear, structured documentation for handoff. Ensure systems are maintainable and scalable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Projects Section */}
+      {/* Featured Projects Section */}
       <section id="projects" className="py-20 md:py-32">
         <div className="container">
-          <h2 className="section-title mb-16">Notable Projects</h2>
-          <div className="space-y-12">
-            {/* Project 1 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <h2 className="section-title mb-4">Featured Projects</h2>
+          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
+            Real-world examples of AI workflows, automation systems, and operational tools I've built.
+          </p>
+
+          <div className="space-y-20">
+            {/* Project 1: AI Patient Intake */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-2xl font-bold mb-3">HighLevel Workflow Automation</h3>
-                <p className="text-muted-foreground mb-4">
-                  Built comprehensive automation suite for a service business, integrating HighLevel with Housecall Pro and Google Sheets. Reduced manual data entry by 80% and improved lead response time.
+                <h3 className="text-2xl font-bold mb-3">AI Patient Intake & Routing Workflow</h3>
+                <p className="text-muted-foreground mb-6">
+                  A mock AI-assisted patient intake system built with n8n, OpenAI, Gmail, and Google Sheets. The workflow captures inbound inquiries, structures the data, classifies urgency and intent, routes submissions, generates follow-up drafts, logs activity, and escalates higher-risk cases for human review.
                 </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">HighLevel</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">APIs</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Webhooks</span>
+                <div className="flex gap-2 flex-wrap mb-6">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">n8n</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">OpenAI</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Human-in-the-loop</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Gmail</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Google Sheets</span>
                 </div>
+                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                  <Play size={16} />
+                  Watch Demo
+                </a>
               </div>
-              <div className="bg-secondary rounded-lg h-64 flex items-center justify-center text-muted-foreground">
-                [Project Screenshot]
+              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/IwyFULvhUNU"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                    title="AI Patient Intake & Routing Workflow"
+                  ></iframe>
+                </div>
               </div>
             </div>
 
-            {/* Project 2 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="bg-secondary rounded-lg h-64 flex items-center justify-center text-muted-foreground order-2 md:order-1">
-                [Project Screenshot]
+            {/* Project 2: AI Knowledge Base */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md order-2 md:order-1">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/b4F3ZLBM6ac"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                    title="AI Knowledge Base / Support Agent Workflow"
+                  ></iframe>
+                </div>
               </div>
               <div className="order-1 md:order-2">
-                <h3 className="text-2xl font-bold mb-3">Multi-System Integration Hub</h3>
-                <p className="text-muted-foreground mb-4">
-                  Designed and implemented a central integration hub connecting CRM, accounting, and operational systems. Standardized data flow across platforms and reduced integration maintenance time by 60%.
+                <h3 className="text-2xl font-bold mb-3">AI Knowledge Base / Support Agent Workflow</h3>
+                <p className="text-muted-foreground mb-6">
+                  An AI workflow project demonstrating how submitted Q&A pairs can be ingested, tagged with AI, stored in a data table, and queried by an AI agent to provide grounded responses instead of generic hallucinated answers.
                 </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">JSON</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">REST APIs</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Process Design</span>
+                <div className="flex gap-2 flex-wrap mb-6">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">AI Agents</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Knowledge Base</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Data Tables</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Grounded AI</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Prompting</span>
                 </div>
+                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                  <Play size={16} />
+                  Watch Demo
+                </a>
               </div>
             </div>
 
-            {/* Project 3 */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Project 3: OpsFlow AI */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-2xl font-bold mb-3">Operational Workflow Redesign</h3>
-                <p className="text-muted-foreground mb-4">
-                  Analyzed and redesigned core operational workflows for a scaling team. Implemented automation for repetitive tasks and created comprehensive documentation. Improved team efficiency by 40%.
+                <h3 className="text-2xl font-bold mb-3">OpsFlow AI — Workflow Audit & Automation Planner</h3>
+                <p className="text-muted-foreground mb-6">
+                  A one-day app prototype that turns messy business processes into structured automation plans, including pain points, automation opportunities, recommended tools, implementation steps, and estimated business impact.
                 </p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Workflow Design</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Documentation</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Automation</span>
+                <div className="flex gap-2 flex-wrap mb-6">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">UX Design</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">App Prototyping</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Process Mapping</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Automation Planning</span>
                 </div>
+                <p className="text-muted-foreground text-sm italic">Video coming soon</p>
               </div>
               <div className="bg-secondary rounded-lg h-64 flex items-center justify-center text-muted-foreground">
-                [Project Screenshot]
+                [Project Screenshot/Demo]
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider"></div>
+
+      {/* Work History Section */}
+      <section className="py-20 md:py-32">
+        <div className="container">
+          <h2 className="section-title mb-16">Work History</h2>
+          <div className="space-y-12">
+            {/* Role 1 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-2">Marketing Coordinator</h3>
+              <p className="text-accent font-semibold mb-4">The Crew Cleaning & Restoration</p>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Designed multi-branch CRM automations using conditional logic and lifecycle triggers to improve operational efficiency and data consistency</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Structured revenue and performance reporting systems to align marketing, sales, and operations processes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Built lifecycle-based growth systems tracking acquisition, conversion, retention, referral performance, CAC, and LTV</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Role 2 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-2">Outbound Email Specialist Intern</h3>
+              <p className="text-accent font-semibold mb-4">828 Web & Marketing</p>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Supported outbound campaign strategy and AI-assisted personalization workflows</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Contributed to performance tracking, reporting, and campaign optimization</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider"></div>
+
+      {/* Skills Section */}
+      <section className="py-20 md:py-32 bg-secondary/30">
+        <div className="container">
+          <h2 className="section-title mb-16">Skills & Expertise</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* AI & Automation */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">AI & Automation</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>n8n</li>
+                <li>OpenAI</li>
+                <li>AI agents</li>
+                <li>Structured JSON outputs</li>
+                <li>Workflow orchestration</li>
+                <li>Human-in-the-loop systems</li>
+                <li>Zapier</li>
+                <li>Webhooks</li>
+                <li>API exposure</li>
+              </ul>
+            </div>
+
+            {/* Operations & Systems */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">Operations & Systems</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>CRM automation</li>
+                <li>Lifecycle automation</li>
+                <li>Process mapping</li>
+                <li>Routing logic</li>
+                <li>Business systems design</li>
+                <li>Operational reporting</li>
+              </ul>
+            </div>
+
+            {/* Data & Reporting */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">Data & Reporting</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>Google Sheets</li>
+                <li>Excel</li>
+                <li>KPI dashboards</li>
+                <li>CAC/LTV tracking</li>
+                <li>Funnel analytics</li>
+                <li>Revenue reporting</li>
+                <li>SQL foundations</li>
+              </ul>
+            </div>
+
+            {/* UX / Product */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">UX / Product</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>App prototyping</li>
+                <li>Workflow diagrams</li>
+                <li>SIPOC</li>
+                <li>Swimlane diagrams</li>
+                <li>Customer journey mapping</li>
+                <li>Internal tool design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider"></div>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 md:py-32">
+        <div className="container">
+          <h2 className="section-title mb-4">How I Can Help</h2>
+          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
+            I work with teams and organizations that need practical AI systems, workflow automation, and operational tools.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Service 1 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">AI Workflow Automation</h3>
+              <p className="text-muted-foreground">
+                Design and build AI-powered workflows that handle intake, routing, classification, and human review. Structured outputs, not hallucinations.
+              </p>
+            </div>
+
+            {/* Service 2 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">CRM & Lifecycle Systems</h3>
+              <p className="text-muted-foreground">
+                Build multi-branch CRM automations, lifecycle triggers, and conditional logic that improve operational efficiency and data consistency.
+              </p>
+            </div>
+
+            {/* Service 3 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">Internal Tool Prototyping</h3>
+              <p className="text-muted-foreground">
+                Rapid prototyping of internal tools, dashboards, and workflow apps. From concept to working prototype in days.
+              </p>
+            </div>
+
+            {/* Service 4 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">Revenue & Operations Reporting</h3>
+              <p className="text-muted-foreground">
+                Design KPI dashboards, funnel analytics, CAC/LTV tracking, and revenue reporting systems that align teams.
+              </p>
+            </div>
+
+            {/* Service 5 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">Business Process Mapping</h3>
+              <p className="text-muted-foreground">
+                Audit messy workflows, identify automation opportunities, and create structured automation plans with implementation steps.
+              </p>
+            </div>
+
+            {/* Service 6 */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">AI Agent Workflow Design</h3>
+              <p className="text-muted-foreground">
+                Build AI agents that leverage knowledge bases, structured data, and grounded responses for support and automation.
+              </p>
             </div>
           </div>
         </div>
@@ -326,15 +411,15 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32">
         <div className="container max-w-2xl mx-auto text-center">
-          <h2 className="section-title mb-6">Let's Talk</h2>
+          <h2 className="section-title mb-6">Let's Build Practical AI Systems</h2>
           <p className="text-lg text-muted-foreground mb-12">
-            I'm interested in GTM effectiveness and automation roles. Let's discuss how I can help optimize your workflows and scale your systems.
+            I'm open to roles and projects involving AI operations, workflow automation, revenue operations, marketing systems, and internal tools.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:peter@example.com" className="cta-button inline-flex items-center justify-center gap-2">
+            <a href="mailto:peterchelm@gmail.com" className="cta-button inline-flex items-center justify-center gap-2">
               <Mail size={18} /> Send Email
             </a>
-            <a href="https://linkedin.com" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
+            <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
               <Linkedin size={18} /> Connect on LinkedIn
             </a>
           </div>
@@ -344,7 +429,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container text-center text-muted-foreground">
-          <p>&copy; 2026 Peter Helm. Designed with precision.</p>
+          <p>&copy; 2026 Peter Helm. AI Workflow & Operations Builder.</p>
         </div>
       </footer>
     </div>
