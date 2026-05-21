@@ -6,12 +6,14 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import N8nShowcase from "./pages/N8nShowcase";
+import Contact from "./pages/Contact";
 
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/contact"} component={Contact} />
       <Route path={"/work/n8n"} component={N8nShowcase} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
@@ -29,7 +31,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
+        defaultTheme="dark"
       >
         <TooltipProvider>
           <Toaster />

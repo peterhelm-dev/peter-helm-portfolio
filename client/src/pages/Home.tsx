@@ -32,13 +32,14 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0">
           <img 
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-abstract-tech-8F6M5LueTpeM9gQBrY22Zu.webp"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-ai-workflow-bg-hJDhcDbeBU8LEG6fV6uZmN.webp"
             alt="Background"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30"></div>
         </div>
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -54,20 +55,20 @@ export default function Home() {
                 <a href="#projects" className="cta-button inline-flex items-center">
                   View Projects <ArrowRight className="ml-2" size={18} />
                 </a>
-                <a href="#contact" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200">
+                <a href="/contact" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200">
                   Contact Me
                 </a>
               </div>
             </div>
 
-            {/* Right: Headshot */}
+            {/* Right: Headshot - Enlarged */}
             <div className="flex justify-center md:justify-end">
-              <div className="relative w-full max-w-sm">
-                <div className="absolute inset-0 bg-accent/10 rounded-lg blur-2xl"></div>
+              <div className="relative w-full max-w-md">
+                <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-3xl"></div>
                 <img 
                   src="/manus-storage/peter-headshot_004a866d.png"
                   alt="Peter Helm"
-                  className="relative rounded-lg shadow-lg w-full h-auto"
+                  className="relative rounded-2xl shadow-2xl w-full h-auto"
                 />
               </div>
             </div>
@@ -416,8 +417,8 @@ export default function Home() {
             I'm open to roles and projects involving AI operations, workflow automation, revenue operations, marketing systems, and internal tools.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:peterchelm@gmail.com" className="cta-button inline-flex items-center justify-center gap-2">
-              <Mail size={18} /> Send Email
+            <a href="/contact" className="cta-button inline-flex items-center justify-center gap-2">
+              <Mail size={18} /> Send Message
             </a>
             <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
               <Linkedin size={18} /> Connect on LinkedIn
