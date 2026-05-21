@@ -64,11 +64,10 @@ export default function Home() {
             {/* Right: Headshot - Enlarged */}
             <div className="flex justify-center md:justify-end">
               <div className="relative w-full max-w-md">
-                <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-3xl"></div>
                 <img 
-                  src="/manus-storage/peter-headshot_004a866d.png"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/peter-headshot-nobg-pYqL7cGvWzLEhEkUqLCpQe.webp"
                   alt="Peter Helm"
-                  className="relative rounded-2xl shadow-2xl w-full h-auto"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
