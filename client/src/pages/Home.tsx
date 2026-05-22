@@ -32,16 +32,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-ai-workflow-bg-hJDhcDbeBU8LEG6fV6uZmN.webp"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30"></div>
-        </div>
-        <div className="container relative z-10">
+      <section className="py-16 md:py-24">
+        <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div>
