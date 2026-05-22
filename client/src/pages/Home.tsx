@@ -65,7 +65,7 @@ export default function Home() {
             <div className="flex justify-center md:justify-end">
               <div className="relative w-full max-w-md">
                 <img 
-                  src="/manus-storage/peter-headshot-solid_4b008d5e.png?v=2"
+                  src="/manus-storage/peter-headshot-solid_9277ad71.png"
                   alt="Peter Helm"
                   className="w-full h-auto"
                 />
