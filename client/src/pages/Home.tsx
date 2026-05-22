@@ -32,8 +32,16 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24">
-        <div className="container">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-ai-workflow-bg-hJDhcDbeBU8LEG6fV6uZmN.webp"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30"></div>
+        </div>
+        <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div>
@@ -57,7 +65,7 @@ export default function Home() {
             <div className="flex justify-center md:justify-end">
               <div className="relative w-full max-w-md">
                 <img 
-                  src="/manus-storage/peter-headshot-solid_4b008d5e.png"
+                  src="/manus-storage/peter-headshot-solid_4b008d5e.png?v=2"
                   alt="Peter Helm"
                   className="w-full h-auto"
                 />
