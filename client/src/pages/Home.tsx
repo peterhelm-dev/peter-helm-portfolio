@@ -35,11 +35,11 @@ export default function Home() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663588202014/J4xrRQrRNCaF8mYqRPW9Rc/hero-ai-workflow-bg-hJDhcDbeBU8LEG6fV6uZmN.webp"
-            alt="Background"
+            src="/manus-storage/hero-with-headshot_4de3ee64.png"
+            alt="Hero Background with Headshot"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/20 to-transparent"></div>
         </div>
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -58,17 +58,6 @@ export default function Home() {
                 <a href="/contact" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200">
                   Contact Me
                 </a>
-              </div>
-            </div>
-
-            {/* Right: Headshot - Enlarged */}
-            <div className="flex justify-center md:justify-end">
-              <div className="relative w-full max-w-md">
-                <img 
-                  src="/manus-storage/peter-headshot-solid_9277ad71.png"
-                  alt="Peter Helm"
-                  className="w-full h-auto"
-                />
               </div>
             </div>
           </div>
