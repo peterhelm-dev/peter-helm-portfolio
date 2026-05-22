@@ -59,7 +59,8 @@ export default function Home() {
                 <img 
                   src="/manus-storage/peter-headshot-nobg_cc005382.png"
                   alt="Peter Helm"
-                  className="w-full h-auto"
+                  className="w-full h-auto block"
+                  style={{ imageRendering: 'auto', backgroundColor: 'transparent' }}
                 />
               </div>
             </div>

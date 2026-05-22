@@ -178,6 +178,12 @@
     @apply h-px bg-border my-12;
   }
 
+  /* Transparent image rendering */
+  img[src*="nobg"] {
+    background: transparent;
+    image-rendering: crisp-edges;
+  }
+
   .section-title {
     @apply text-4xl md:text-5xl font-bold text-foreground mb-4;
   }
