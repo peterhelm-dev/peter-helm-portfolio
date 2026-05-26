@@ -195,7 +195,35 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 3: OpsFlow AI */}
+            {/* Project 3: TrialOps Board */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <h3 className="text-2xl font-bold mb-3">TrialOps Board — Clinical Trial Operations Dashboard</h3>
+                <p className="text-muted-foreground mb-6">
+                  A comprehensive healthcare operations management web application designed to help teams plan, track, and coordinate clinical trial work. Features include a customizable KPI dashboard, filterable project table with inline editing, five-column kanban board for task management, review queue for approvals, team workload visualization, analytics reports, and role-based admin controls.
+                </p>
+                <div className="flex gap-2 flex-wrap mb-6">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Full-Stack Web App</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">React</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Kanban Board</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Dashboard</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Analytics</span>
+                </div>
+                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                  <Play size={16} />
+                  View Live App
+                </a>
+              </div>
+              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md">
+                <img 
+                  src="/manus-storage/Screenshot2026-05-26at12.38.11PM_31def4b1.webp"
+                  alt="TrialOps Board Dashboard"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            {/* Project 4: OpsFlow AI */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <h3 className="text-2xl font-bold mb-3">OpsFlow AI — Workflow Audit & Automation Planner</h3>
