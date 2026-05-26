@@ -35,7 +35,7 @@ export default function Home() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="/manus-storage/hero-with-headshot_4de3ee64.png"
+            src="/manus-storage/hero-with-headshot_b380b844.png"
             alt="Hero Background with Headshot"
             className="w-full h-full object-cover"
           />
