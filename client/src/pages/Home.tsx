@@ -223,23 +223,39 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 4: OpsFlow AI */}
+            {/* Project 4: The Crew Automation Showcase */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-2xl font-bold mb-3">OpsFlow AI — Workflow Audit & Automation Planner</h3>
+                <h3 className="text-2xl font-bold mb-3">The Crew: HaskellPro to HighLevel Integration</h3>
                 <p className="text-muted-foreground mb-6">
-                  A one-day app prototype that turns messy business processes into structured automation plans, including pain points, automation opportunities, recommended tools, implementation steps, and estimated business impact.
+                  A deep dive into the webhook-based integration I built at The Crew Cleaning & Restoration. This workflow connects HaskellPro's job management system to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across platforms. The system uses custom code to parse webhook payloads, route data based on event types, and maintain data consistency across multiple systems.
+                </p>
+                <p className="text-muted-foreground mb-6 text-sm">
+                  <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, and multi-system orchestration.
                 </p>
                 <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">UX Design</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">App Prototyping</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Process Mapping</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Automation Planning</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Webhooks</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">API Integration</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">HighLevel</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Custom Code</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">CRM Automation</span>
                 </div>
-                <p className="text-muted-foreground text-sm italic">Video coming soon</p>
+                <a href="https://youtu.be/2-a-EwNlgoY" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                  <Play size={16} />
+                  Watch Full Walkthrough
+                </a>
               </div>
-              <div className="bg-secondary rounded-lg h-64 flex items-center justify-center text-muted-foreground">
-                [Project Screenshot/Demo]
+              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/2-a-EwNlgoY"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                    title="The Crew HaskellPro to HighLevel Integration"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
