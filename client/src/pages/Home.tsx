@@ -225,10 +225,22 @@ export default function Home() {
 
             {/* Project 4: The Crew Automation Showcase */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-2xl font-bold mb-3">The Crew: HaskellPro to HighLevel Integration</h3>
+              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md order-2 md:order-1">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/2-a-EwNlgoY"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                    title="The Crew Housecall Pro to HighLevel Integration"
+                  ></iframe>
+                </div>
+              </div>
+              <div className="order-1 md:order-2">
+                <h3 className="text-2xl font-bold mb-3">The Crew: Housecall Pro to HighLevel Integration</h3>
                 <p className="text-muted-foreground mb-6">
-                  A deep dive into the webhook-based integration I built at The Crew Cleaning & Restoration. This workflow connects HaskellPro's job management system to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across platforms. The system uses custom code to parse webhook payloads, route data based on event types, and maintain data consistency across multiple systems.
+                  A deep dive into the webhook-based integration I built at The Crew Cleaning & Restoration. This workflow connects Housecall Pro's job management system to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across platforms. The system uses custom code to parse webhook payloads, route data based on event types, and maintain data consistency across multiple systems.
                 </p>
                 <p className="text-muted-foreground mb-6 text-sm">
                   <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, and multi-system orchestration.
@@ -244,18 +256,6 @@ export default function Home() {
                   <Play size={16} />
                   Watch Full Walkthrough
                 </a>
-              </div>
-              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/2-a-EwNlgoY"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                    title="The Crew HaskellPro to HighLevel Integration"
-                  ></iframe>
-                </div>
               </div>
             </div>
           </div>
