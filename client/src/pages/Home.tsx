@@ -1,5 +1,6 @@
 import { ArrowRight, Github, Linkedin, Mail, Play } from "lucide-react";
 import { Link } from "wouter";
+import { blogPosts } from "@/data/blogPosts";
 
 /**
  * Peter Helm Portfolio - Home Page
@@ -21,6 +22,7 @@ export default function Home() {
             <a href="#about" className="nav-link">About</a>
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#services" className="nav-link">Services</a>
+            <Link href="/blog" className="nav-link">Blog</Link>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
           <div className="flex gap-4">
@@ -434,6 +436,40 @@ export default function Home() {
                 Build AI agents that leverage knowledge bases, structured data, and grounded responses for support and automation.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="divider"></div>
+
+      {/* Blog Section */}
+      <section id="blog" className="py-20 md:py-32 bg-secondary/30">
+        <div className="container">
+          <div className="flex items-end justify-between mb-16 flex-wrap gap-4">
+            <div>
+              <h2 className="section-title mb-4">From the Blog</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Notes on AI workflows, automation, and operations from building real systems.
+              </p>
+            </div>
+            <Link href="/blog" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all whitespace-nowrap">
+              View All Posts <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="card-minimal group flex flex-col">
+                <p className="text-sm text-muted-foreground mb-3">
+                  {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                </p>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-accent transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-muted-foreground flex-1">{post.excerpt}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
