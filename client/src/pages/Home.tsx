@@ -130,7 +130,30 @@ export default function Home() {
           </p>
 
           <div className="space-y-20">
-            {/* Project 1: AI Patient Intake */}
+            {/* Project 1: The Crew Automation Case Study - FEATURED */}
+            <div className="bg-gradient-to-r from-accent/20 to-accent/10 border-2 border-accent rounded-lg p-8 mb-12">
+              <div className="max-w-3xl">
+                <h3 className="text-4xl font-bold mb-4 text-accent">The Crew: Housecall Pro to HighLevel Integration</h3>
+                <p className="text-lg text-foreground mb-6 leading-relaxed">
+                  A comprehensive webhook-based integration I built at The Crew Cleaning & Restoration. This system connects Housecall Pro's job management platform to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across systems. The architecture uses custom code logic to parse webhook payloads, route data based on event types, and maintain consistency across multiple platforms.
+                </p>
+                <p className="text-muted-foreground mb-6">
+                  <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, and real-time automation.
+                </p>
+                <div className="flex gap-2 flex-wrap mb-8">
+                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">Webhooks</span>
+                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">API Integration</span>
+                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">HighLevel</span>
+                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">Custom Code</span>
+                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">CRM Automation</span>
+                </div>
+                <Link href="/work/crew" asChild>
+                  <Button size="lg" className="text-base px-8 py-6">Explore Full Case Study with Diagrams →</Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Project 2: AI Patient Intake */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <h3 className="text-2xl font-bold mb-3">AI Patient Intake & Routing Workflow</h3>
@@ -163,7 +186,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 2: AI Knowledge Base */}
+            {/* Project 3: AI Knowledge Base */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md order-2 md:order-1">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
@@ -196,7 +219,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 3: TrialOps Board */}
+            {/* Project 4: TrialOps Board */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <h3 className="text-2xl font-bold mb-3">TrialOps Board — Clinical Trial Operations Dashboard</h3>
@@ -224,46 +247,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 4: The Crew Automation Showcase */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md order-2 md:order-1">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/2-a-EwNlgoY"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                    title="The Crew Housecall Pro to HighLevel Integration"
-                  ></iframe>
-                </div>
-              </div>
-              <div className="order-1 md:order-2">
-                <h3 className="text-2xl font-bold mb-3">The Crew: Housecall Pro to HighLevel Integration</h3>
-                <p className="text-muted-foreground mb-6">
-                  A deep dive into the webhook-based integration I built at The Crew Cleaning & Restoration. This workflow connects Housecall Pro's job management system to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across platforms. The system uses custom code to parse webhook payloads, route data based on event types, and maintain data consistency across multiple systems.
-                </p>
-                <p className="text-muted-foreground mb-6 text-sm">
-                  <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, and multi-system orchestration.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Webhooks</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">API Integration</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">HighLevel</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Custom Code</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">CRM Automation</span>
-                </div>
-                <div className="flex gap-3 flex-wrap">
-                  <a href="https://youtu.be/2-a-EwNlgoY" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
-                    <Play size={16} />
-                    Watch Full Walkthrough
-                  </a>
-                  <Link href="/work/crew" asChild>
-                    <Button variant="outline" size="sm">View Full Case Study</Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
