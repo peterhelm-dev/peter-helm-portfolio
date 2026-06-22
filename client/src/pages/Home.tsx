@@ -1,5 +1,6 @@
 import { ArrowRight, Github, Linkedin, Mail, Play } from "lucide-react";
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 /**
  * Peter Helm Portfolio - Home Page
@@ -252,10 +253,15 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Custom Code</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">CRM Automation</span>
                 </div>
-                <a href="https://youtu.be/2-a-EwNlgoY" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
-                  <Play size={16} />
-                  Watch Full Walkthrough
-                </a>
+                <div className="flex gap-3 flex-wrap">
+                  <a href="https://youtu.be/2-a-EwNlgoY" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                    <Play size={16} />
+                    Watch Full Walkthrough
+                  </a>
+                  <Link href="/work/crew" asChild>
+                    <Button variant="outline" size="sm">View Full Case Study</Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
