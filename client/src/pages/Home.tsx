@@ -37,10 +37,10 @@ export default function Home() {
         <div className="container">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Business Systems & AI <span className="text-accent">Automation</span> Portfolio
+              Business Systems & <span className="text-accent">Automation</span> Portfolio
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Case studies, architecture diagrams, workflow automations, reporting systems, AI projects, and operational improvements I've designed and implemented.
+              Case studies, architecture diagrams, workflow automations, reporting systems, and operational improvements I've designed and implemented.
             </p>
               <div className="flex gap-4">
                 <a href="#projects" className="cta-button inline-flex items-center">
@@ -74,17 +74,17 @@ export default function Home() {
             <div>
               <h2 className="section-title">About Me</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I'm focused on the intersection of AI operations, workflow automation, revenue operations, and business systems. My work combines process mapping, structured outputs, automation logic, CRM/lifecycle systems, and operational reporting to turn ambiguous workflows into usable systems.
+                I focus on designing and building operational systems that connect people, processes, and data. My work combines process mapping, automation logic, CRM/lifecycle systems, and operational reporting to transform ambiguous workflows into scalable, documented systems.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I build with n8n, OpenAI, and modern data tools. I design human-in-the-loop systems that leverage AI without replacing judgment. I turn messy business processes into clean, documented, scalable automation workflows.
+                I build with n8n, modern data tools, and AI where it adds value. I design systems that leverage automation and AI as assistants—not replacements—for human judgment. I turn messy business processes into clean, maintainable workflows.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">AI Workflow Design</h3>
-                    <p className="text-muted-foreground">Build practical AI-powered workflows with structured outputs and human review</p>
+                  <h3 className="font-semibold text-foreground mb-1">Workflow Automation</h3>
+                  <p className="text-muted-foreground">Design automation workflows with structured logic, data routing, and human review points</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title mb-4">Featured Projects</h2>
           <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            Real-world examples of AI workflows, automation systems, and operational tools I've built.
+            Real-world examples of automation systems, operational tools, and workflow implementations I've built.
           </p>
 
           <div className="space-y-20">
@@ -167,7 +167,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Gmail</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Google Sheets</span>
                 </div>
-                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
                   <Play size={16} />
                   Watch Demo
                 </a>
@@ -212,7 +212,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Grounded AI</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Prompting</span>
                 </div>
-                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
                   <Play size={16} />
                   Watch Demo
                 </a>
@@ -233,7 +233,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Dashboard</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Analytics</span>
                 </div>
-                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
                   <Play size={16} />
                   View Live App
                 </a>
@@ -374,14 +374,14 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title mb-4">How I Can Help</h2>
           <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            I work with teams and organizations that need practical AI systems, workflow automation, and operational tools.
+            I work with teams and organizations that need to build scalable systems, streamline operations, and connect their data and processes.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Service 1 */}
             <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">AI Workflow Automation</h3>
+              <h3 className="text-xl font-bold mb-3">Workflow Automation</h3>
               <p className="text-muted-foreground">
-                Design and build AI-powered workflows that handle intake, routing, classification, and human review. Structured outputs, not hallucinations.
+                Design and build workflows that handle intake, routing, classification, and routing logic. Structured outputs and clear decision trees.
               </p>
             </div>
 
@@ -413,15 +413,15 @@ export default function Home() {
             <div className="card-minimal">
               <h3 className="text-xl font-bold mb-3">Business Process Mapping</h3>
               <p className="text-muted-foreground">
-                Audit messy workflows, identify automation opportunities, and create structured automation plans with implementation steps.
+                Audit workflows, identify automation opportunities, and create structured implementation plans with clear decision logic.
               </p>
             </div>
 
             {/* Service 6 */}
             <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">AI Agent Workflow Design</h3>
+              <h3 className="text-xl font-bold mb-3">Systems Integration</h3>
               <p className="text-muted-foreground">
-                Build AI agents that leverage knowledge bases, structured data, and grounded responses for support and automation.
+                Connect platforms, sync data across systems, and build reliable integrations that keep teams aligned and data consistent.
               </p>
             </div>
           </div>
@@ -434,9 +434,9 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32">
         <div className="container max-w-2xl mx-auto text-center">
-          <h2 className="section-title mb-6">Let's Build Practical AI Systems</h2>
+          <h2 className="section-title mb-6">Let's Build Better Systems</h2>
           <p className="text-lg text-muted-foreground mb-12">
-            I'm open to roles and projects involving AI operations, workflow automation, revenue operations, marketing systems, and internal tools.
+            I'm open to roles and projects involving workflow automation, business systems, revenue operations, and operational tools.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact" className="cta-button inline-flex items-center justify-center gap-2">

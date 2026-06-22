@@ -77,7 +77,7 @@ export default function Contact() {
         <div className="container max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind or want to discuss AI workflows and automation? Send me a message and I'll get back to you as soon as possible.
+            Have a project in mind or want to discuss systems, automation, or operations? Send me a message and I'll get back to you as soon as possible.
           </p>
         </div>
       </section>
@@ -183,7 +183,7 @@ export default function Contact() {
             {/* Info Text */}
             <p className="text-sm text-muted-foreground text-center">
               Your email client will open to complete the send. Alternatively, email me directly at{" "}
-              <a href="mailto:peterchelm@gmail.com" className="text-accent hover:underline">
+              <a href="mailto:peterchelm@gmail.com" className="text-blue-300 hover:text-blue-200 hover:underline">
                 peterchelm@gmail.com
               </a>
             </p>
@@ -205,7 +205,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:peterchelm@gmail.com"
-                className="text-accent font-semibold hover:underline"
+                className="text-blue-300 font-semibold hover:text-blue-200 hover:underline"
               >
                 peterchelm@gmail.com
               </a>
@@ -222,7 +222,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/peter-helm-231042287/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent font-semibold hover:underline"
+                className="text-blue-300 font-semibold hover:text-blue-200 hover:underline"
               >
                 View Profile
               </a>
@@ -234,7 +234,7 @@ export default function Contact() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container text-center text-muted-foreground">
-          <p>&copy; 2026 Peter Helm. AI Workflow & Operations Builder.</p>
+          <p>&copy; 2026 Peter Helm. Systems & Automation Builder.</p>
         </div>
       </footer>
     </div>

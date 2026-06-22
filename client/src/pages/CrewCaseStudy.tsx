@@ -85,7 +85,7 @@ export default function CrewCaseStudy() {
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold mb-3 text-accent">Analysis & Design</h3>
+              <h3 className="font-semibold mb-3 text-blue-300">Analysis & Design</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Gathered requirements from leadership and teams</li>
                 <li>• Mapped business processes end-to-end</li>
@@ -94,7 +94,7 @@ export default function CrewCaseStudy() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-3 text-accent">Implementation & Support</h3>
+              <h3 className="font-semibold mb-3 text-blue-300">Implementation & Support</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Built integrations between systems</li>
                 <li>• Created reporting dashboards</li>
