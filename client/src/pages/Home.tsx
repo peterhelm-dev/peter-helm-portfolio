@@ -34,24 +34,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/manus-storage/hero-with-headshot_b380b844.png"
-            alt="Hero Background with Headshot"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/20 to-transparent"></div>
-        </div>
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                AI Workflow & <span className="text-accent">Operations</span> Builder
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I design and build practical AI-powered workflows, automation systems, and operational tools for teams that need cleaner processes, faster follow-up, and better visibility.
-              </p>
+        <div className="container">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Business Systems & AI <span className="text-accent">Automation</span> Portfolio
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Case studies, architecture diagrams, workflow automations, reporting systems, AI projects, and operational improvements I've designed and implemented.
+            </p>
               <div className="flex gap-4">
                 <a href="#projects" className="cta-button inline-flex items-center">
                   View Projects <ArrowRight className="ml-2" size={18} />
@@ -61,7 +51,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
