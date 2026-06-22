@@ -37,21 +37,14 @@ export default function CrewCaseStudy() {
           </div>
         </section>
 
-        {/* Video Section */}
+        {/* System Overview Diagram */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6">Project Walkthrough</h2>
-          <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-lg">
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                src="https://www.youtube.com/embed/2-a-EwNlgoY"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute top-0 left-0 w-full h-full"
-                title="The Crew Automation System Walkthrough"
-              ></iframe>
-            </div>
-          </div>
+          <h2 className="text-3xl font-bold mb-6">System Architecture Overview</h2>
+          <img
+            src="/manus-storage/Gemini_Generated_Image_brxj9ubrxj9ubrxj_b9d9e369.png"
+            alt="AI-Enabled Business Operations & Reporting System"
+            className="w-full rounded-lg shadow-lg border border-border"
+          />
         </section>
 
         {/* The Problem */}
