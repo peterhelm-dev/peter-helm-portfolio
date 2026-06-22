@@ -120,25 +120,36 @@ export default function Home() {
 
           <div className="space-y-20">
             {/* Project 1: The Crew Automation Case Study - FEATURED */}
-            <div className="bg-gradient-to-r from-accent/20 to-accent/10 border-2 border-accent rounded-lg p-8 mb-12">
-              <div className="max-w-3xl">
-                <h3 className="text-4xl font-bold mb-4 text-accent">The Crew: Housecall Pro to HighLevel Integration</h3>
-                <p className="text-lg text-foreground mb-6 leading-relaxed">
+            <div className="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-800 border-2 border-blue-500 rounded-lg p-8 mb-12 shadow-xl">
+              <div className="grid md:grid-cols-3 gap-8 items-start">
+                {/* Logo */}
+                <div className="md:col-span-1 flex items-center justify-center">
+                  <img 
+                    src="/manus-storage/TheCrewLogocopy_2a49caf5.webp"
+                    alt="The Crew Logo"
+                    className="w-full max-w-xs h-auto"
+                  />
+                </div>
+                {/* Content */}
+                <div className="md:col-span-2">
+                  <h3 className="text-4xl font-bold mb-4 text-white">The Crew: Housecall Pro to HighLevel Integration</h3>
+                  <p className="text-lg text-slate-100 mb-6 leading-relaxed">
                   A comprehensive webhook-based integration I built at The Crew Cleaning & Restoration. This system connects Housecall Pro's job management platform to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across systems. The architecture uses custom code logic to parse webhook payloads, route data based on event types, and maintain consistency across multiple platforms.
                 </p>
-                <p className="text-muted-foreground mb-6">
-                  <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, and real-time automation.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-8">
-                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">Webhooks</span>
-                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">API Integration</span>
-                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">HighLevel</span>
-                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">Custom Code</span>
-                  <span className="px-3 py-1 bg-accent/30 text-accent rounded-full text-sm font-medium">CRM Automation</span>
+                  <p className="text-slate-200 mb-6">
+                    <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, and real-time automation.
+                  </p>
+                  <div className="flex gap-2 flex-wrap mb-8">
+                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Webhooks</span>
+                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">API Integration</span>
+                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">HighLevel</span>
+                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Custom Code</span>
+                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">CRM Automation</span>
+                  </div>
+                  <Link href="/work/crew" asChild>
+                    <Button size="lg" className="text-base px-8 py-6 bg-blue-600 hover:bg-blue-700">Explore Full Case Study with Diagrams →</Button>
+                  </Link>
                 </div>
-                <Link href="/work/crew" asChild>
-                  <Button size="lg" className="text-base px-8 py-6">Explore Full Case Study with Diagrams →</Button>
-                </Link>
               </div>
             </div>
 
