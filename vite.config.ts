@@ -203,7 +203,101 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+// =============================================================================
+// Anthropic Proxy — dev-mode mirror of the Express /api/ai/* routes
+// Allows `pnpm dev` to work without running a separate Express server.
+// =============================================================================
+
+const ANTHROPIC_BASE = "https://api.anthropic.com/v1/messages";
+const ANTHROPIC_VERSION = "2023-06-01";
+
+function vitePluginAnthropicProxy(): Plugin {
+  return {
+    name: "anthropic-proxy",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use("/api/ai", async (req, res) => {
+        const url = req.url ?? "";
+        const isMessages = url === "/messages";
+        const isStream = url === "/stream";
+
+        if (req.method !== "POST" || (!isMessages && !isStream)) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Not found" }));
+          return;
+        }
+
+        const apiKey = process.env.ANTHROPIC_API_KEY;
+        if (!apiKey) {
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "ANTHROPIC_API_KEY not configured. Add it to a .env file." }));
+          return;
+        }
+
+        // Read request body
+        const bodyStr = await new Promise<string>((resolve, reject) => {
+          let data = "";
+          req.on("data", (chunk: Buffer) => { data += chunk.toString(); });
+          req.on("end", () => resolve(data));
+          req.on("error", reject);
+        });
+        const body = JSON.parse(bodyStr) as Record<string, unknown>;
+
+        const usesWebSearch =
+          Array.isArray(body.tools) &&
+          body.tools.some(
+            (t: unknown) => (t as { type?: string }).type === "web_search_20250305"
+          );
+
+        const headers: Record<string, string> = {
+          "x-api-key": apiKey,
+          "anthropic-version": ANTHROPIC_VERSION,
+          "content-type": "application/json",
+        };
+        if (usesWebSearch) headers["anthropic-beta"] = "web-search-2025-03-05";
+
+        try {
+          const upstream = await fetch(ANTHROPIC_BASE, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(isStream ? { ...body, stream: true } : body),
+          });
+
+          if (isStream && upstream.ok) {
+            res.writeHead(200, {
+              "Content-Type": "text/event-stream",
+              "Cache-Control": "no-cache",
+              "Connection": "keep-alive",
+            });
+            const reader = upstream.body!.getReader();
+            const decoder = new TextDecoder();
+            try {
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                res.write(decoder.decode(value, { stream: true }));
+              }
+            } finally {
+              res.end();
+            }
+          } else if (!upstream.ok) {
+            const errData = (await upstream.json()) as { error?: { message?: string } };
+            res.writeHead(upstream.status, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: errData.error?.message ?? "Anthropic API error" }));
+          } else {
+            const data = await upstream.json();
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(data));
+          }
+        } catch (err) {
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }));
+        }
+      });
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), vitePluginAnthropicProxy()];
 
 export default defineConfig({
   plugins,

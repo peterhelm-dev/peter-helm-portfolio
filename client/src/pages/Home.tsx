@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Linkedin, Mail, Play } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Play, Cpu } from "lucide-react";
 import { Link } from "wouter";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -222,6 +222,69 @@ export default function Home() {
                   alt="TrialOps Board Dashboard"
                   className="w-full h-auto"
                 />
+              </div>
+            </div>
+
+            {/* Project 5: AI Research Pipeline */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium mb-4">
+                  <Cpu size={12} /> Live Demo
+                </div>
+                <h3 className="text-2xl font-bold mb-3">AI Research Pipeline — Live Anthropic Integration</h3>
+                <p className="text-muted-foreground mb-6">
+                  A four-step agentic research pipeline running on the Anthropic API: a planning agent writes a research strategy, a web-search tool retrieves live sources, a structured extraction step pulls verified facts into JSON, and a streaming synthesis step delivers a final answer — all with real token streaming, multi-turn memory, and an instrument-panel UI showing live agent trace.
+                </p>
+                <div className="flex gap-2 flex-wrap mb-6">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Anthropic API</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Web Search Tool</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">SSE Streaming</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Multi-turn Memory</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">React + TypeScript</span>
+                </div>
+                <Link href="/projects/research-pipeline" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+                  <ArrowRight size={16} />
+                  Try the Live Pipeline
+                </Link>
+              </div>
+              <div className="relative w-full bg-[#12161B] rounded-lg overflow-hidden shadow-md border border-[#2A323C] p-6">
+                <div className="font-mono text-xs space-y-2" style={{ color: "#C8D4DC" }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-[#E8A33D]"></div>
+                    <span style={{ color: "#E8A33D" }}>AGENT TRACE</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#5C7080]">01</span>
+                    <span style={{ color: "#3FA796" }}>PLAN</span>
+                    <span className="text-[#5C7080]">·····</span>
+                    <span style={{ color: "#3FA796" }}>DONE</span>
+                    <span className="text-[#5C7080] ml-auto">124ms</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#5C7080]">02</span>
+                    <span style={{ color: "#3FA796" }}>RETRIEVE</span>
+                    <span className="text-[#5C7080]">···</span>
+                    <span style={{ color: "#3FA796" }}>DONE</span>
+                    <span className="text-[#5C7080] ml-auto">2.1s</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#5C7080]">03</span>
+                    <span style={{ color: "#3FA796" }}>EXTRACT</span>
+                    <span className="text-[#5C7080]">····</span>
+                    <span style={{ color: "#3FA796" }}>DONE</span>
+                    <span className="text-[#5C7080] ml-auto">1.4s</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#5C7080]">04</span>
+                    <span style={{ color: "#E8A33D" }}>SYNTHESIZE</span>
+                    <span className="text-[#5C7080]">·</span>
+                    <span style={{ color: "#E8A33D" }}>STREAMING</span>
+                    <span className="text-[#5C7080] ml-auto">890ms</span>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-[#2A323C]" style={{ color: "#5B8DB8" }}>
+                    &gt; Multi-turn memory enabled · 4 facts extracted
+                  </div>
+                </div>
               </div>
             </div>
 

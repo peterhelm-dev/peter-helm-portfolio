@@ -9,6 +9,7 @@ import N8nShowcase from "./pages/N8nShowcase";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import ResearchPipeline from "./pages/ResearchPipeline";
 
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
       <Route path={"/work/n8n"} component={N8nShowcase} />
       <Route path={"/blog"} component={Blog} />
       <Route path={"/blog/:slug"} component={BlogPost} />
+      <Route path={"/projects/research-pipeline"} component={ResearchPipeline} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

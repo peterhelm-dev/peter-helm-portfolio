@@ -144,6 +144,26 @@
   }
 }
 
+/* ── Instrument Panel theme (Research Pipeline page) ────────────────────── */
+.research-pipeline {
+  --ip-bg:            #12161B;
+  --ip-panel:         #181D24;
+  --ip-panel-hover:   #1D2330;
+  --ip-border:        #2A323C;
+  --ip-border-strong: #3A4A58;
+  --ip-amber:         #E8A33D;
+  --ip-amber-dim:     rgba(232, 163, 61, 0.12);
+  --ip-teal:          #3FA796;
+  --ip-teal-dim:      rgba(63, 167, 150, 0.12);
+  --ip-rust:          #C4573A;
+  --ip-rust-dim:      rgba(196, 87, 58, 0.12);
+  --ip-blue:          #5B8DB8;
+  --ip-text:          #C8D4DC;
+  --ip-text-bright:   #E8F0F8;
+  --ip-muted:         #5C7080;
+  --ip-mono:          'IBM Plex Mono', 'Geist Mono', ui-monospace, monospace;
+}
+
 @layer components {
   .container {
     width: 100%;
