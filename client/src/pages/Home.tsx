@@ -1,4 +1,5 @@
-import { ArrowRight, Github, Linkedin, Mail, Play, Cpu } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Menu, Play, Cpu, X } from "lucide-react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -12,6 +13,8 @@ import { blogPosts } from "@/data/blogPosts";
  */
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -25,12 +28,32 @@ export default function Home() {
             <Link href="/blog" className="nav-link">Blog</Link>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="text-muted-foreground hover:text-accent transition-colors">
               <Linkedin size={20} />
             </a>
+            <button
+              type="button"
+              className="md:hidden p-2 -mr-2 text-foreground hover:text-accent transition-colors"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-sm">
+            <div className="container flex flex-col py-2">
+              <a href="#about" className="nav-link py-3" onClick={() => setMenuOpen(false)}>About</a>
+              <a href="#projects" className="nav-link py-3" onClick={() => setMenuOpen(false)}>Projects</a>
+              <a href="#services" className="nav-link py-3" onClick={() => setMenuOpen(false)}>Services</a>
+              <Link href="/blog" className="nav-link py-3" onClick={() => setMenuOpen(false)}>Blog</Link>
+              <a href="#contact" className="nav-link py-3" onClick={() => setMenuOpen(false)}>Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -70,7 +93,7 @@ export default function Home() {
       <div className="divider"></div>
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-32">
+      <section id="about" className="scroll-mt-16 py-20 md:py-32">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left: Image */}
@@ -123,7 +146,7 @@ export default function Home() {
       <div className="divider"></div>
 
       {/* Featured Projects Section */}
-      <section id="projects" className="py-20 md:py-32">
+      <section id="projects" className="scroll-mt-16 py-20 md:py-32">
         <div className="container">
           <h2 className="section-title mb-4">Featured Projects</h2>
           <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
@@ -445,7 +468,7 @@ export default function Home() {
       <div className="divider"></div>
 
       {/* Services Section */}
-      <section id="services" className="py-20 md:py-32">
+      <section id="services" className="scroll-mt-16 py-20 md:py-32">
         <div className="container">
           <h2 className="section-title mb-4">How I Can Help</h2>
           <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
@@ -507,7 +530,7 @@ export default function Home() {
       <div className="divider"></div>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 md:py-32 bg-secondary/30">
+      <section id="blog" className="scroll-mt-16 py-20 md:py-32 bg-secondary/30">
         <div className="container">
           <div className="flex items-end justify-between mb-16 flex-wrap gap-4">
             <div>
@@ -541,7 +564,7 @@ export default function Home() {
       <div className="divider"></div>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-32">
+      <section id="contact" className="scroll-mt-16 py-20 md:py-32">
         <div className="container max-w-2xl mx-auto text-center">
           <h2 className="section-title mb-6">Let's Build Practical AI Systems</h2>
           <p className="text-lg text-muted-foreground mb-12">

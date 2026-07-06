@@ -701,7 +701,7 @@ export default function ResearchPipeline() {
               }
               placeholder="Enter a research question…"
               disabled={isRunning}
-              className="flex-1 px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors disabled:opacity-50"
+              className="flex-1 min-w-0 px-4 py-2.5 rounded-lg border text-base sm:text-sm outline-none transition-colors disabled:opacity-50"
               style={{
                 background: "var(--ip-panel)",
                 borderColor: "var(--ip-border-strong)",
