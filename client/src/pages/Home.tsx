@@ -315,19 +315,42 @@ export default function Home() {
             </div>
 
             {/* Project 7: Customer Experience & Content Design */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Customer Experience and Content Design</h3>
-              <p className="text-muted-foreground mb-4">
-                Designed customer-facing content and materials for The Crew, including an eight-page educational sales folder, intake forms, referral incentives, and educational resources. Worked closely with leadership to map customer touchpoints and create materials that build trust and guide decision-making.
-              </p>
-              <div className="flex gap-2 flex-wrap mb-4">
-                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Content Design</span>
-                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Customer Journey</span>
-                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Sales Materials</span>
+            <div className="card-minimal overflow-hidden p-0">
+              {/* Thumbnail strip */}
+              <div className="grid grid-cols-3 gap-0 h-44 overflow-hidden">
+                <img
+                  src="/manus-storage/Front_0ff3e5ca.png"
+                  alt="The Crew sales folder front cover"
+                  className="w-full h-full object-cover"
+                />
+                <img
+                  src="/manus-storage/1_9a42a8cc.png"
+                  alt="The Crew sales folder page 1"
+                  className="w-full h-full object-cover"
+                />
+                <img
+                  src="/manus-storage/ABOUT US_7a43393b.png"
+                  alt="The Crew About Us page"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <Link href="/work/crew/customer-experience" asChild>
-                <Button variant="outline" size="sm" className="text-blue-300 border-blue-300 hover:bg-blue-950">View Gallery →</Button>
-              </Link>
+              {/* Card content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Customer Experience and Content Design</h3>
+                <p className="text-muted-foreground mb-4">
+                  Designed customer-facing content and materials for The Crew, including an eight-page educational sales folder, intake forms, referral incentives, and educational resources. Worked closely with leadership to map customer touchpoints and create materials that build trust and guide decision-making.
+                </p>
+                <div className="flex gap-2 flex-wrap mb-5">
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Content Design</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Customer Journey</span>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Sales Materials</span>
+                </div>
+                <Link href="/work/crew/customer-experience" asChild>
+                  <Button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2 text-sm">
+                    View Gallery →
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             {/* Project 8: Custom GPT for The Crew */}
