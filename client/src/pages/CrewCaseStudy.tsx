@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "wouter";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function CrewCaseStudy() {
   return (
@@ -15,7 +16,7 @@ export default function CrewCaseStudy() {
             </Button>
           </Link>
           <h1 className="text-lg font-semibold">The Crew Case Study</h1>
-          <div className="w-24" />
+          <div className="w-24 flex justify-end"><ThemeToggle /></div>
         </div>
       </nav>
 

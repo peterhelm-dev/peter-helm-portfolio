@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /**
  * N8N & AI Agents Showcase Page
@@ -60,6 +61,7 @@ export default function N8nShowcase() {
             <span className="font-semibold">Back to Portfolio</span>
           </Link>
           <div className="text-2xl font-bold text-accent">PH</div>
+          <ThemeToggle />
         </div>
       </nav>
 

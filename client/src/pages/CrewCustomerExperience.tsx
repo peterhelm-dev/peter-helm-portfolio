@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function CrewCustomerExperience() {
   const [, setLocation] = useLocation();
@@ -80,13 +81,16 @@ export default function CrewCustomerExperience() {
       <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex items-center justify-between py-4">
           <h1 className="text-2xl font-bold">Customer Experience & Content Design</h1>
-          <button
-            onClick={() => setLocation("/")}
-            className="flex items-center gap-2 text-accent hover:text-accent-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Portfolio
-          </button>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setLocation("/")}
+              className="flex items-center gap-2 text-accent hover:text-accent-foreground transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </button>
+          </div>
         </div>
       </nav>
 

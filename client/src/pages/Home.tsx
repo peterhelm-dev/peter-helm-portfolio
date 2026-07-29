@@ -1,6 +1,7 @@
 import { Linkedin, Mail, ArrowRight, Play } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /**
  * Peter Helm Portfolio - Home Page
@@ -25,7 +26,8 @@ export default function Home() {
             <a href="#services" className="nav-link">Services</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
             <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="text-muted-foreground hover:text-accent transition-colors">
               <Linkedin size={20} />
             </a>
@@ -125,24 +127,24 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 <div>
                   <h3 className="text-4xl font-bold mb-4 text-white">Clover AI</h3>
-                  <p className="text-lg text-slate-100 mb-6 leading-relaxed">
+                  <p className="text-lg text-white/90 mb-6 leading-relaxed">
                     A live daily-use nutrition tracker that demonstrates agentic AI tool-calling in action. Users upload a meal photo or voice recording. The AI decides which function to call to extract nutrition data, cross-references it against FDA standards, and writes results to a database powering live tables and graphs.
                   </p>
-                  <p className="text-slate-200 mb-6">
+                  <p className="text-white/80 mb-6">
                     <strong>Technical Highlights:</strong> Agentic tool-calling, function selection, nutrition data extraction, FDA standards integration, database persistence, real-time analytics.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">AI Agents</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Tool Calling</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Data Integration</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Real-time Analytics</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">AI Agents</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Tool Calling</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Data Integration</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Real-time Analytics</span>
                   </div>
                   <div className="flex gap-3 flex-wrap">
-                    <a href="https://clover-ai.up.railway.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                    <a href="https://clover-ai.up.railway.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all hover:text-white/80">
                       <Play size={16} />
                       View Live App
                     </a>
-                    <a href="https://github.com/peterhelm-dev/clover-ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-300 font-semibold hover:gap-3 transition-all hover:text-slate-100">
+                    <a href="https://github.com/peterhelm-dev/clover-ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white/70 font-semibold hover:gap-3 transition-all hover:text-white">
                       View on GitHub
                     </a>
                   </div>
@@ -171,7 +173,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Stripe</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Data Analysis</span>
                 </div>
-                <a href="https://terraiq-olive.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                <a href="https://terraiq-olive.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
                   <Play size={16} />
                   View Live App
                 </a>
@@ -199,39 +201,39 @@ export default function Home() {
                 {/* Content */}
                 <div className="md:col-span-2">
                   <h3 className="text-4xl font-bold mb-4 text-white">The Crew: Housecall Pro to HighLevel Integration</h3>
-                  <p className="text-lg text-slate-100 mb-6 leading-relaxed">
+                  <p className="text-lg text-white/90 mb-6 leading-relaxed">
                   A comprehensive webhook-based integration I built at The Crew Cleaning and Restoration. This system connects Housecall Pro's job management platform to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across systems. The architecture uses custom code logic to parse webhook payloads, route data based on event types, and maintain consistency across multiple platforms. The system feeds into KPI dashboards and lead-pipeline reporting that align sales, operations, and management teams.
                 </p>
-                  <p className="text-slate-200 mb-6">
+                  <p className="text-white/80 mb-6">
                     <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, real-time automation, reporting systems.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Webhooks</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">API Integration</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">HighLevel</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Custom Code</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">CRM Automation</span>
-                    <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Reporting</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Webhooks</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">API Integration</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">HighLevel</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Custom Code</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">CRM Automation</span>
+                    <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Reporting</span>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Link href="/work/crew" asChild>
                       <Button size="lg" className="text-base px-8 py-6 bg-blue-600 hover:bg-blue-700">Explore Full Case Study with Diagrams →</Button>
                     </Link>
                     <Link href="/work/crew/customer-experience" asChild>
-                      <Button size="lg" variant="outline" className="text-base px-8 py-6 border-blue-400 text-blue-200 hover:bg-blue-900/40">View Customer Experience Gallery →</Button>
+                      <Button size="lg" variant="outline" className="text-base px-8 py-6 border-white/50 text-white hover:bg-white/10">View Customer Experience Gallery →</Button>
                     </Link>
                   </div>
                 </div>
               </div>
               {/* Customer Experience thumbnail strip */}
               <div className="mt-6 pt-6 border-t border-blue-800">
-                <p className="text-xs uppercase tracking-widest text-blue-300 font-semibold mb-3">Also from this project</p>
+                <p className="text-xs uppercase tracking-widest text-white/60 font-semibold mb-3">Also from this project</p>
                 <div className="grid grid-cols-3 gap-2 rounded-lg overflow-hidden h-28">
                   <img src="/manus-storage/Front_74b7ac9f.png" alt="Sales folder cover" className="w-full h-full object-cover" />
                   <img src="/manus-storage/1_3a012859.png" alt="Sales folder page 1" className="w-full h-full object-cover" />
                   <img src="/manus-storage/ABOUT_US_9ff86404.png" alt="About Us page" className="w-full h-full object-cover" />
                 </div>
-                <p className="text-sm text-slate-300 mt-2">Customer-facing sales folder, referral materials, and educational content designed for in-home estimates.</p>
+                <p className="text-sm text-white/70 mt-2">Customer-facing sales folder, referral materials, and educational content designed for in-home estimates.</p>
               </div>
             </div>
 
@@ -249,7 +251,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Gmail</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Google Sheets</span>
                 </div>
-                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
                   <Play size={16} />
                   Watch Demo
                 </a>
@@ -294,7 +296,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Data Tables</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Grounded AI</span>
                 </div>
-                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
                   <Play size={16} />
                   Watch Demo
                 </a>
@@ -315,7 +317,7 @@ export default function Home() {
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Dashboard</span>
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Analytics</span>
                 </div>
-                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
                   <Play size={16} />
                   View Live App
                 </a>

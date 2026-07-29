@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowLeft, Mail, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /**
  * Contact Page
@@ -69,6 +70,7 @@ export default function Contact() {
             <span className="font-semibold">Back</span>
           </Link>
           <div className="text-2xl font-bold text-accent">PH</div>
+          <ThemeToggle />
         </div>
       </nav>
 
