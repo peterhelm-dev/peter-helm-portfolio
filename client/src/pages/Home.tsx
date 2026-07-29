@@ -219,9 +219,7 @@ export default function Home() {
                     <Link href="/work/crew" asChild>
                       <Button size="lg" className="text-base px-8 py-6 bg-blue-600 hover:bg-blue-700">Explore Full Case Study with Diagrams →</Button>
                     </Link>
-                    <Link href="/work/crew/customer-experience" asChild>
-                      <Button size="lg" variant="outline" className="text-base px-8 py-6 border-white/50 text-white hover:bg-white/10">View Customer Experience Gallery →</Button>
-                    </Link>
+
                   </div>
                 </div>
               </div>
@@ -233,7 +231,7 @@ export default function Home() {
                   <img src="/manus-storage/1_3a012859.png" alt="Sales folder page 1" className="w-full h-full object-cover" />
                   <img src="/manus-storage/ABOUT_US_9ff86404.png" alt="About Us page" className="w-full h-full object-cover" />
                 </div>
-                <p className="text-sm text-white/70 mt-2">Customer-facing sales folder, referral materials, and educational content designed for in-home estimates.</p>
+                <p className="text-sm text-white/70 mt-2">Customer-facing sales materials included in the case study — scroll down inside the case study to see the full gallery.</p>
               </div>
             </div>
 

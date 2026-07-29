@@ -86,7 +86,7 @@ export default function CrewCaseStudy() {
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold mb-3 text-blue-300">Analysis & Design</h3>
+              <h3 className="font-semibold mb-3 text-accent">Analysis & Design</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Gathered requirements from leadership and teams</li>
                 <li>• Mapped business processes end-to-end</li>
@@ -95,7 +95,7 @@ export default function CrewCaseStudy() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-3 text-blue-300">Implementation & Support</h3>
+              <h3 className="font-semibold mb-3 text-accent">Implementation & Support</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Built integrations between systems</li>
                 <li>• Created reporting dashboards</li>
@@ -304,6 +304,43 @@ export default function CrewCaseStudy() {
               <div key={skill} className="flex items-center gap-3 p-3 bg-secondary/30 rounded-lg border border-border">
                 <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0"></div>
                 <span className="text-sm">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Customer Experience Gallery */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-3">Customer Experience & Content Design</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Alongside the technical integration work, I designed the full suite of customer-facing sales materials used during in-home estimates — educational content, process guides, and referral collateral that helped technicians build trust and close jobs.
+          </p>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              { title: "Common Grout Problems", description: "Educational content explaining grout issues, causes, and troubleshooting approaches", image: "/manus-storage/1_3a012859.png" },
+              { title: "Clean and Restore Process", description: "Step-by-step visual guide showing the five-stage restoration process", image: "/manus-storage/3_6de84e2c.png" },
+              { title: "About Us", description: "Company story, values, and differentiators designed to build trust during in-home sales visits", image: "/manus-storage/ABOUT_US_9ff86404.png" },
+              { title: "Frequently Asked Questions", description: "Comprehensive Q&A addressing common customer concerns about tile, grout, sealing, and warranties", image: "/manus-storage/FAQs_CTA_e2a17d56.png" },
+              { title: "Maintenance Guide", description: "Post-service maintenance instructions and best practices for customers", image: "/manus-storage/Maintenance_b9b641a1.png" },
+              { title: "Warranty Information", description: "Clear explanation of warranty coverage, terms, and what is included with service", image: "/manus-storage/WARRANTY_7cd9fe3c.png" },
+              { title: "What to Expect", description: "Preparation guide helping customers understand the service process", image: "/manus-storage/WHAT_TO_EXPECT_9de9666b.png" },
+              { title: "Referral Program", description: "Details on The Crew's referral incentive program encouraging customer advocacy", image: "/manus-storage/REFERRAL_PROGRAM_76f735ba.png" },
+              { title: "Referral Gift Card - Front", description: "Customer-facing referral incentive card highlighting the $50 gift card offer", image: "/manus-storage/Front_74b7ac9f.png" },
+              { title: "Referral Gift Card - Back", description: "Back side of referral gift card with terms and usage information", image: "/manus-storage/Back_ca88a0ad.png" },
+              { title: "Sales Folder Template - Cover", description: "Template design for the tile and grout restoration sales folder", image: "/manus-storage/2_a09fa4b4.png" },
+            ].map((item) => (
+              <div key={item.title} className="group rounded-lg overflow-hidden border border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="aspect-[4/3] overflow-hidden bg-secondary">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
