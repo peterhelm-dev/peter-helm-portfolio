@@ -213,10 +213,25 @@ export default function Home() {
                     <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">CRM Automation</span>
                     <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Reporting</span>
                   </div>
-                  <Link href="/work/crew" asChild>
-                    <Button size="lg" className="text-base px-8 py-6 bg-blue-600 hover:bg-blue-700">Explore Full Case Study with Diagrams →</Button>
-                  </Link>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/work/crew" asChild>
+                      <Button size="lg" className="text-base px-8 py-6 bg-blue-600 hover:bg-blue-700">Explore Full Case Study with Diagrams →</Button>
+                    </Link>
+                    <Link href="/work/crew/customer-experience" asChild>
+                      <Button size="lg" variant="outline" className="text-base px-8 py-6 border-blue-400 text-blue-200 hover:bg-blue-900/40">View Customer Experience Gallery →</Button>
+                    </Link>
+                  </div>
                 </div>
+              </div>
+              {/* Customer Experience thumbnail strip */}
+              <div className="mt-6 pt-6 border-t border-blue-800">
+                <p className="text-xs uppercase tracking-widest text-blue-300 font-semibold mb-3">Also from this project</p>
+                <div className="grid grid-cols-3 gap-2 rounded-lg overflow-hidden h-28">
+                  <img src="/manus-storage/Front_74b7ac9f.png" alt="Sales folder cover" className="w-full h-full object-cover" />
+                  <img src="/manus-storage/1_3a012859.png" alt="Sales folder page 1" className="w-full h-full object-cover" />
+                  <img src="/manus-storage/ABOUT_US_9ff86404.png" alt="About Us page" className="w-full h-full object-cover" />
+                </div>
+                <p className="text-sm text-slate-300 mt-2">Customer-facing sales folder, referral materials, and educational content designed for in-home estimates.</p>
               </div>
             </div>
 
@@ -314,44 +329,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 7: Customer Experience & Content Design */}
-            <div className="card-minimal overflow-hidden p-0">
-              {/* Thumbnail strip */}
-              <div className="grid grid-cols-3 gap-0 h-44 overflow-hidden">
-                <img
-                  src="/manus-storage/Front_0ff3e5ca.png"
-                  alt="The Crew sales folder front cover"
-                  className="w-full h-full object-cover"
-                />
-                <img
-                  src="/manus-storage/1_9a42a8cc.png"
-                  alt="The Crew sales folder page 1"
-                  className="w-full h-full object-cover"
-                />
-                <img
-                  src="/manus-storage/ABOUT US_7a43393b.png"
-                  alt="The Crew About Us page"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Card content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">Customer Experience and Content Design</h3>
-                <p className="text-muted-foreground mb-4">
-                  Designed customer-facing content and materials for The Crew, including an eight-page educational sales folder, intake forms, referral incentives, and educational resources. Worked closely with leadership to map customer touchpoints and create materials that build trust and guide decision-making.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-5">
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Content Design</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Customer Journey</span>
-                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Sales Materials</span>
-                </div>
-                <Link href="/work/crew/customer-experience" asChild>
-                  <Button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2 text-sm">
-                    View Gallery →
-                  </Button>
-                </Link>
-              </div>
-            </div>
+
 
             {/* Project 8: Custom GPT for The Crew */}
             <div className="card-minimal">
