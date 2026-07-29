@@ -137,10 +137,22 @@ export default function Home() {
                     <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Data Integration</span>
                     <span className="px-3 py-1 bg-blue-500/40 text-blue-100 rounded-full text-sm font-medium">Real-time Analytics</span>
                   </div>
-                  <a href="https://github.com/peterhelm-dev/clover-ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
-                    <Play size={16} />
-                    View on GitHub
-                  </a>
+                  <div className="flex gap-3 flex-wrap">
+                    <a href="https://clover-ai.up.railway.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-300 font-semibold hover:gap-3 transition-all hover:text-blue-200">
+                      <Play size={16} />
+                      View Live App
+                    </a>
+                    <a href="https://github.com/peterhelm-dev/clover-ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-300 font-semibold hover:gap-3 transition-all hover:text-slate-100">
+                      View on GitHub
+                    </a>
+                  </div>
+                </div>
+                <div className="rounded-lg overflow-hidden border border-blue-500/30 shadow-lg">
+                  <img
+                    src="/manus-storage/Screenshot2026-07-29at3.36.32PM_9180b9a9.webp"
+                    alt="Clover AI Voice Food Logger interface"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -164,9 +176,12 @@ export default function Home() {
                   View Live App
                 </a>
               </div>
-              <div className="text-muted-foreground">
-                <p className="mb-4"><strong>GitHub:</strong> github.com/peterhelm-dev/terraiq</p>
-                <p className="mb-4"><strong>Key Features:</strong> Live deal analysis, economic data integration, portfolio mapping, role-based access control, subscription management, automated testing.</p>
+              <div className="rounded-lg overflow-hidden border border-slate-700 shadow-lg">
+                <img
+                  src="/manus-storage/terraiq-screenshot_bb6662a9.webp"
+                  alt="TerraIQ CRE Intelligence Terminal interface"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
 
