@@ -299,7 +299,23 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 7: Custom GPT for The Crew */}
+            {/* Project 7: Customer Experience & Content Design */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">Customer Experience and Content Design</h3>
+              <p className="text-muted-foreground mb-4">
+                Designed customer-facing content and materials for The Crew, including an eight-page educational sales folder, intake forms, referral incentives, and educational resources. Worked closely with leadership to map customer touchpoints and create materials that build trust and guide decision-making.
+              </p>
+              <div className="flex gap-2 flex-wrap mb-4">
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Content Design</span>
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Customer Journey</span>
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Sales Materials</span>
+              </div>
+              <Link href="/work/crew/customer-experience" asChild>
+                <Button variant="outline" size="sm" className="text-blue-300 border-blue-300 hover:bg-blue-950">View Gallery →</Button>
+              </Link>
+            </div>
+
+            {/* Project 8: Custom GPT for The Crew */}
             <div className="card-minimal">
               <h3 className="text-xl font-bold mb-3">Custom GPT for The Crew</h3>
               <p className="text-muted-foreground mb-4">

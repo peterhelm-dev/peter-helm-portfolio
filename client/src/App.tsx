@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import N8nShowcase from "./pages/N8nShowcase";
 import Contact from "./pages/Contact";
 import CrewCaseStudy from "./pages/CrewCaseStudy";
+import CrewCustomerExperience from "./pages/CrewCustomerExperience";
 
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/work/n8n"} component={N8nShowcase} />
       <Route path={"/work/crew"} component={CrewCaseStudy} />
+      <Route path={"/work/crew/customer-experience"} component={CrewCustomerExperience} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
