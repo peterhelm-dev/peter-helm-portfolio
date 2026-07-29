@@ -322,7 +322,7 @@ export default function Home() {
           <div className="space-y-12">
             {/* Role 1 */}
             <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-2">Automation Builder and Marketing Coordinator</h3>
+              <h3 className="text-xl font-bold mb-2">Automation and Systems Specialist</h3>
               <p className="text-accent font-semibold mb-4">The Crew Cleaning and Restoration</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
