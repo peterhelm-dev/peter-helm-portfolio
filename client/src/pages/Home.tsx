@@ -1,4 +1,4 @@
-import { Linkedin, Mail, ArrowRight, Play } from "lucide-react";
+import { Linkedin, Mail, ArrowRight, Play, Github } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -28,7 +28,10 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="text-muted-foreground hover:text-accent transition-colors">
+            <a href="https://github.com/peterhelm-dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
+              <Github size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/peter-helm-231042287/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
               <Linkedin size={20} />
             </a>
           </div>
@@ -39,11 +42,14 @@ export default function Home() {
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="container">
           <div className="max-w-2xl">
+            <p className="text-accent font-semibold uppercase tracking-wide text-sm mb-4">
+              Business Systems & Automation Specialist
+            </p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               I turn messy business data and processes into systems people can trust.
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Data analyst, business systems builder, and automation engineer. I design operational systems that connect people, processes, and data through workflow automation, business intelligence, and structured integrations.
+              I design and build automation infrastructure that connects business systems (CRMs, scheduling tools, spreadsheets, messaging platforms) through APIs and webhooks, then document and hand it off so non-technical teams can run it themselves. Workflow automation, AI integration, and reporting systems, built to actually get used.
             </p>
               <div className="flex gap-4">
                 <a href="#projects" className="cta-button inline-flex items-center">
@@ -77,10 +83,13 @@ export default function Home() {
             <div>
               <h2 className="section-title">About Me</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I focus on designing and building operational systems that connect people, processes, and data. My work combines process mapping, data analysis, automation logic, CRM/lifecycle systems, and operational reporting to transform ambiguous workflows into scalable, documented systems.
+                I graduated from Liberty University in 2022 with a degree in Biblical Studies, which is not exactly the standard on-ramp into automation and systems work. Here's how it actually happened: I was working at The Crew Cleaning and Restoration in a different role, and I just asked my boss if there was anything else I could help with. That turned into building out a lead pipeline in GoHighLevel, which turned into connecting Housecall Pro and GoHighLevel with webhooks, which turned into being the person who designed and ran the company's entire automation infrastructure. I learned most of it by doing it, one broken workflow at a time.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I build with n8n, Python, SQL, modern data tools, and AI where it adds value. I design systems that leverage automation and AI as assistants, not replacements, for human judgment. I turn messy business processes into clean, maintainable workflows backed by reliable data.
+                These days I design and build automation infrastructure that connects the tools businesses already use (CRMs, scheduling platforms, spreadsheets, messaging tools) through APIs and webhooks. I write the integration logic, build the reporting on top of it, then document everything and train the team so the system doesn't depend on me being in the room. AI shows up in my work too, both as a coding aid that helps me build and debug faster, and, where it earns its place, as part of the systems themselves.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                A book called "God and Guinness" changed how I think about this kind of work. It's about a brewing family that built a business with a direct, tangible, positive impact on their community, and I think about sales and systems work the same way: it's not just about optimizing a metric, it's about serving the people on the other end of the process well, whether that's a customer getting an honest estimate or a coworker who finally has a dashboard that tells them the truth. I'm based in Plymouth, New Hampshire now, and open to remote work or local hybrid and on-site roles.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -128,11 +137,16 @@ export default function Home() {
                 <div>
                   <h3 className="text-4xl font-bold mb-4 text-white">Clover AI</h3>
                   <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                    A live daily-use nutrition tracker that demonstrates agentic AI tool-calling in action. Users upload a meal photo or voice recording. The AI decides which function to call to extract nutrition data, cross-references it against FDA standards, and writes results to a database powering live tables and graphs.
+                    A live, daily-use nutrition tracker built with Claude Code. Users log a meal by photo or voice, and the AI model itself decides which function to call to extract nutrition data, cross-reference it against FDA standards, and write results to a database powering live tables, weekly reports, and stats. This is true agentic tool-calling, not a scripted pipeline.
                   </p>
-                  <p className="text-white/80 mb-6">
-                    <strong>Technical Highlights:</strong> Agentic tool-calling, function selection, nutrition data extraction, FDA standards integration, database persistence, real-time analytics.
-                  </p>
+                  <ul className="text-white/80 mb-6 space-y-2 text-sm">
+                    <li>• Nutrition analysis is Zod-validated server-side before it ever touches the database, model output is treated as untrusted input</li>
+                    <li>• A hand-rolled provider-abstraction layer (an Anthropic wrapper presenting an OpenAI-shaped interface) let me swap LLM providers without touching call sites, a real migration I actually did</li>
+                    <li>• Single-call multi-intent classification (log food, answer a question, or both) instead of a separate classify-then-handle step, cutting latency and cost roughly in half</li>
+                    <li>• Context engineering with explicit epistemics: it states data-coverage gaps directly ("logged 3 of 7 days, sleep and stress not tracked") instead of guessing</li>
+                    <li>• Output-space constraints for safety: weekly reports and mood cards select from a fixed template library rather than free-form generation</li>
+                    <li>• Multimodal input (photo and voice) with honest null-handling for missing data rather than fabricated values</li>
+                  </ul>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">AI Agents</span>
                     <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Tool Calling</span>
@@ -164,7 +178,7 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold mb-3">TerraIQ</h3>
                 <p className="text-muted-foreground mb-6">
-                  Commercial real estate portfolio and deal-intelligence tool. Claude analyzes deals using live economic data from the Federal Reserve's FRED API and Mapbox for portfolio mapping. Built on production-grade infrastructure: multi-tenant row-level security, four-role permission matrix, Stripe subscription billing, and automated Postgres test suite.
+                  A commercial real estate portfolio and deal-intelligence terminal. React 18 and Vite on the frontend, Supabase (Postgres, auth, realtime, edge functions) on the backend with multi-tenant row-level security and a four-role permission matrix. Claude is called directly through Supabase Edge Functions to analyze deals and give portfolio advice (streaming chat and analysis, not tool-calling), using live macroeconomic data from the Federal Reserve Bank of St. Louis's FRED API and Mapbox for the portfolio map. Stripe handles subscription billing, and there's an automated Postgres test suite behind it.
                 </p>
                 <div className="flex gap-2 flex-wrap mb-6">
                   <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Full-Stack</span>
@@ -231,7 +245,7 @@ export default function Home() {
                   <img src="/manus-storage/1_3a012859.png" alt="Sales folder page 1" className="w-full h-full object-cover" />
                   <img src="/manus-storage/ABOUT_US_9ff86404.png" alt="About Us page" className="w-full h-full object-cover" />
                 </div>
-                <p className="text-sm text-white/70 mt-2">Customer-facing sales materials included in the case study — scroll down inside the case study to see the full gallery.</p>
+                <p className="text-sm text-white/70 mt-2">Customer-facing sales materials included in the case study, scroll down inside the case study to see the full gallery.</p>
               </div>
             </div>
 
@@ -340,6 +354,19 @@ export default function Home() {
               <p className="text-sm text-muted-foreground italic">Deployed and in active use</p>
             </div>
 
+            {/* Project 9: Notion Agent System */}
+            <div className="card-minimal">
+              <h3 className="text-xl font-bold mb-3">Notion Agent System</h3>
+              <p className="text-muted-foreground mb-4">
+                A set of personal AI agents that reference a persistent instruction set on every run instead of starting from a blank prompt each time. The more advanced agent draws on an identity document, persistent memory, and a standing set of goals, functioning as a reusable agent template rather than a one-off script.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Agent Design</span>
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Persistent Memory</span>
+                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">Notion API</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -354,36 +381,65 @@ export default function Home() {
           <div className="space-y-12">
             {/* Role 1 */}
             <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-2">Automation and Systems Specialist</h3>
-              <p className="text-accent font-semibold mb-4">The Crew Cleaning and Restoration</p>
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <h3 className="text-xl font-bold">Automation & Systems Specialist</h3>
+                <span className="text-sm text-muted-foreground">Oct 2024 – May 2026</span>
+              </div>
+              <p className="text-accent font-semibold mb-4">The Crew Cleaning & Restoration</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">•</span>
-                  <span>Designed multi-branch CRM automations using conditional logic and lifecycle triggers to improve operational efficiency and data consistency</span>
+                  <span>Independently designed, built, and maintained a 25-workflow automation infrastructure connecting five platforms (Housecall Pro, GoHighLevel, Google Sheets, Slack, Zapier) via webhook-driven data flows and REST API integrations</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">•</span>
-                  <span>Structured revenue and performance reporting systems to align marketing, sales, and operations processes</span>
+                  <span>Built a 13-stage GoHighLevel lead pipeline tracking 356 leads and $524,881 in revenue at a 51% close rate</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">•</span>
-                  <span>Built lifecycle-based growth systems tracking acquisition, conversion, retention, referral performance, CAC, and LTV</span>
+                  <span>Built a real-time KPI dashboard covering 50+ metrics that replaced manual weekly reporting</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Ran stakeholder discovery sessions with the CEO and sales team, authored SOPs, and trained non-technical staff to run the systems independently</span>
                 </li>
               </ul>
             </div>
 
             {/* Role 2 */}
             <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-2">Outbound Email Specialist Intern</h3>
-              <p className="text-accent font-semibold mb-4">828 Web and Marketing</p>
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <h3 className="text-xl font-bold">Outbound Email Specialist (Internship → Contractor)</h3>
+                <span className="text-sm text-muted-foreground">Sep 2025 – Present</span>
+              </div>
+              <p className="text-accent font-semibold mb-4">828 Web & Marketing (Remote)</p>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">•</span>
-                  <span>Supported outbound campaign strategy and AI-assisted personalization workflows</span>
+                  <span>Manages outbound email list segmentation and campaign sends via Apollo, roughly 1,000 emails per day</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-accent mt-1">•</span>
-                  <span>Contributed to performance tracking, reporting, and campaign optimization</span>
+                  <span>Contributes to AI-related marketing and personalization projects as the agency expands into AI-powered lead generation</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Role 3 */}
+            <div className="card-minimal">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <h3 className="text-xl font-bold">Site Leader to Director</h3>
+                <span className="text-sm text-muted-foreground">Jun 2019 – Aug 2022</span>
+              </div>
+              <p className="text-accent font-semibold mb-4">Liveit Ministries</p>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Led teams of student volunteers delivering education and mentorship programs in underserved neighborhoods, including basketball-based mentorship</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-accent mt-1">•</span>
+                  <span>Promoted to Director for a third year</span>
                 </li>
               </ul>
             </div>
@@ -398,65 +454,69 @@ export default function Home() {
       <section className="py-20 md:py-32 bg-secondary/30">
         <div className="container">
           <h2 className="section-title mb-16">Skills and Expertise</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* AI & Automation */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Languages & Scripting */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">AI and Automation</h3>
+              <h3 className="text-lg font-bold mb-4 text-accent">Languages & Scripting</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>n8n</li>
-                <li>OpenAI</li>
-                <li>AI agents</li>
-                <li>Tool calling</li>
-                <li>Structured JSON outputs</li>
-                <li>Workflow orchestration</li>
-                <li>Human-in-the-loop systems</li>
-                <li>Zapier</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+
+            {/* Integration & APIs */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">Integration & APIs</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>REST APIs</li>
                 <li>Webhooks</li>
-                <li>API exposure</li>
+                <li>Field mapping</li>
+                <li>Third-party SaaS integrations</li>
               </ul>
             </div>
 
-            {/* Data & Business Analysis */}
+            {/* Automation Platforms */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Data and Business Analysis</h3>
+              <h3 className="text-lg font-bold mb-4 text-accent">Automation Platforms</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>Requirements gathering</li>
-                <li>Stakeholder translation</li>
-                <li>KPI dashboard design</li>
-                <li>Data validation and QA</li>
-                <li>SQL fundamentals</li>
-                <li>Process mapping</li>
-                <li>Documentation</li>
-                <li>Funnel analysis</li>
+                <li>GoHighLevel</li>
+                <li>Zapier</li>
+                <li>n8n</li>
               </ul>
             </div>
 
-            {/* Operations & Systems */}
+            {/* AI & LLM */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Operations and Systems</h3>
+              <h3 className="text-lg font-bold mb-4 text-accent">AI & LLM</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>CRM automation</li>
-                <li>Lifecycle automation</li>
-                <li>Process mapping</li>
-                <li>Routing logic</li>
-                <li>Business systems design</li>
-                <li>Operational reporting</li>
-                <li>Data consistency</li>
+                <li>OpenAI API</li>
+                <li>Claude API / Anthropic SDK</li>
+                <li>Prompt engineering</li>
+                <li>Agentic workflow design</li>
+                <li>Human-in-the-loop / guardrail design</li>
               </ul>
             </div>
 
             {/* Data & Reporting */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Data and Reporting</h3>
+              <h3 className="text-lg font-bold mb-4 text-accent">Data & Reporting</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li>Google Sheets</li>
                 <li>Excel</li>
                 <li>KPI dashboards</li>
-                <li>CAC and LTV tracking</li>
-                <li>Revenue reporting</li>
-                <li>SQL</li>
-                <li>Python</li>
-                <li>Data visualization</li>
+                <li>Supabase / Postgres</li>
+              </ul>
+            </div>
+
+            {/* Documentation */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-accent">Documentation</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>SOP authoring</li>
+                <li>Technical specs</li>
+                <li>Stakeholder handoff materials</li>
               </ul>
             </div>
           </div>
@@ -568,8 +628,11 @@ export default function Home() {
             <a href="/contact" className="cta-button inline-flex items-center justify-center gap-2">
               <Mail size={18} /> Send Message
             </a>
-            <a href="https://www.linkedin.com/in/peter-helm-231042287/" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
+            <a href="https://www.linkedin.com/in/peter-helm-231042287/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
               <Linkedin size={18} /> Connect on LinkedIn
+            </a>
+            <a href="https://github.com/peterhelm-dev" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-accent text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-200 inline-flex items-center justify-center gap-2">
+              <Github size={18} /> View GitHub
             </a>
           </div>
         </div>
@@ -578,7 +641,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container text-center text-muted-foreground">
-          <p>&copy; 2026 Peter Helm. Systems and Automation Builder.</p>
+          <p>&copy; 2026 Peter Helm. Business Systems & Automation Specialist.</p>
         </div>
       </footer>
     </div>

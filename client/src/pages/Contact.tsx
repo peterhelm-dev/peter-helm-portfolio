@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Mail, CheckCircle } from "lucide-react";
+import { ArrowLeft, Mail, CheckCircle, Github } from "lucide-react";
 import { Link } from "wouter";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -197,7 +197,7 @@ export default function Contact() {
       <section className="py-16 md:py-24 border-t border-border bg-secondary/30">
         <div className="container max-w-2xl">
           <h2 className="text-2xl font-bold mb-8">Other Ways to Connect</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Direct Email */}
             <div className="card-minimal">
               <Mail className="text-accent mb-4" size={28} />
@@ -229,6 +229,23 @@ export default function Contact() {
                 View Profile
               </a>
             </div>
+
+            {/* GitHub */}
+            <div className="card-minimal">
+              <Github className="text-accent mb-4" size={28} />
+              <h3 className="text-lg font-bold mb-2">GitHub</h3>
+              <p className="text-muted-foreground mb-4">
+                Browse the code behind the projects on this site.
+              </p>
+              <a
+                href="https://github.com/peterhelm-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-300 font-semibold hover:text-blue-200 hover:underline"
+              >
+                View Profile
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -236,7 +253,7 @@ export default function Contact() {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container text-center text-muted-foreground">
-          <p>&copy; 2026 Peter Helm. Systems & Automation Builder.</p>
+          <p>&copy; 2026 Peter Helm. Business Systems & Automation Specialist.</p>
         </div>
       </footer>
     </div>

@@ -82,7 +82,7 @@ export default function CrewCaseStudy() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6">My Role & Responsibilities</h2>
           <p className="text-lg text-muted-foreground mb-6">
-            I led the complete lifecycle of this system—from initial discovery through ongoing maintenance and optimization. My responsibilities included:
+            I led the complete lifecycle of this system, from initial discovery through ongoing maintenance and optimization. My responsibilities included:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
@@ -257,25 +257,73 @@ export default function CrewCaseStudy() {
           </div>
         </section>
 
+        {/* Engineering Deep Dive */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-6">Engineering Deep Dive: Appointment Sync</h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            The core piece of custom code in this system is a webhook-triggered script that keeps appointments in sync between Housecall Pro and GoHighLevel whenever a job is created, rescheduled, or canceled. Housecall Pro and GoHighLevel don't share a native record ID, so the sync couldn't just match on a primary key. Here's how it actually works:
+          </p>
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold mb-1">Matching without a shared ID</h3>
+                <p className="text-sm text-muted-foreground">Paginates GoHighLevel's API to match records on a custom field, since the two platforms have no common identifier to join on</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold mb-1">Routing business logic</h3>
+                <p className="text-sm text-muted-foreground">Branches the sync logic differently for commercial versus residential jobs, since each follows a different pipeline and set of fields</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold mb-1">Idempotent state tracking</h3>
+                <p className="text-sm text-muted-foreground">Maintains a persistent ID mapping between the two systems so a repeat or duplicate webhook event updates the existing record instead of creating a new one</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold mb-1">Technician assignment</h3>
+                <p className="text-sm text-muted-foreground">Assigns the correct technician to the job on the CRM side via API once the appointment details are confirmed</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 className="font-semibold mb-1">Self-verification</h3>
+                <p className="text-sm text-muted-foreground">Refetches the record immediately after writing to confirm the write actually persisted, instead of assuming a 200 response means the data is correct</p>
+              </div>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mt-6">
+            A companion script normalizes eight different Housecall Pro webhook event types into one stable schema before they hit the sync logic, so the rest of the system only has to reason about a single consistent event shape.
+          </p>
+        </section>
+
         {/* Results */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6">Results & Impact</h2>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="bg-accent/10 p-8 rounded-lg border border-accent/20">
-              <div className="text-4xl font-bold text-accent mb-2">60</div>
-              <p className="text-sm text-muted-foreground">Leads tracked per month</p>
+              <div className="text-4xl font-bold text-accent mb-2">356</div>
+              <p className="text-sm text-muted-foreground">Leads tracked through a 13-stage GoHighLevel pipeline</p>
             </div>
             <div className="bg-accent/10 p-8 rounded-lg border border-accent/20">
-              <div className="text-4xl font-bold text-accent mb-2">4</div>
-              <p className="text-sm text-muted-foreground">Sales representatives supported</p>
+              <div className="text-4xl font-bold text-accent mb-2">$524,881</div>
+              <p className="text-sm text-muted-foreground">Revenue tracked from those leads</p>
             </div>
             <div className="bg-accent/10 p-8 rounded-lg border border-accent/20">
-              <div className="text-4xl font-bold text-accent mb-2">12</div>
-              <p className="text-sm text-muted-foreground">Technicians managed</p>
+              <div className="text-4xl font-bold text-accent mb-2">51%</div>
+              <p className="text-sm text-muted-foreground">Close rate on tracked leads</p>
             </div>
             <div className="bg-accent/10 p-8 rounded-lg border border-accent/20">
-              <div className="text-4xl font-bold text-accent mb-2">$200K+</div>
-              <p className="text-sm text-muted-foreground">Monthly revenue tracked</p>
+              <div className="text-4xl font-bold text-accent mb-2">25</div>
+              <p className="text-sm text-muted-foreground">Workflows built across five connected platforms</p>
             </div>
           </div>
           <p className="text-lg text-muted-foreground">
@@ -313,7 +361,7 @@ export default function CrewCaseStudy() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-3">Customer Experience & Content Design</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Alongside the technical integration work, I designed the full suite of customer-facing sales materials used during in-home estimates — educational content, process guides, and referral collateral that helped technicians build trust and close jobs.
+            Alongside the technical integration work, I designed the full suite of customer-facing sales materials used during in-home estimates: educational content, process guides, and referral collateral that helped technicians build trust and close jobs.
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
