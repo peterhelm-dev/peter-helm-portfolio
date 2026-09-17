@@ -82,7 +82,7 @@ export default function N8nShowcase() {
             {videos.map((video) => (
               <div key={video.id} className="group">
                 {/* Video Embed Container */}
-                <div className="relative w-full bg-secondary rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 mb-6">
+                <div className="relative w-full bg-secondary pixel-frame mb-6">
                   <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                     <iframe
                       src={video.loomUrl}
@@ -108,7 +108,7 @@ export default function N8nShowcase() {
                     {video.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+                        className="pixel-badge-light"
                       >
                         {tag}
                       </span>

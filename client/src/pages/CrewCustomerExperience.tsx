@@ -11,67 +11,67 @@ export default function CrewCustomerExperience() {
       id: "folder-1",
       title: "Common Grout Problems",
       description: "Educational content explaining grout issues, causes, and troubleshooting approaches for customers",
-      image: "/manus-storage/1_3a012859.png",
+      image: "/images/crew/sales-folder-page1.png",
     },
     {
       id: "folder-2",
       title: "Clean and Restore Process",
       description: "Step-by-step visual guide showing the five-stage restoration process with images and explanations",
-      image: "/manus-storage/3_6de84e2c.png",
+      image: "/images/crew/clean-restore-process.png",
     },
     {
       id: "folder-3",
       title: "About Us",
       description: "Company story, values, and differentiators designed to build trust during in-home sales visits",
-      image: "/manus-storage/ABOUT_US_9ff86404.png",
+      image: "/images/crew/about-us.png",
     },
     {
       id: "folder-4",
       title: "Frequently Asked Questions",
       description: "Comprehensive Q&A addressing common customer concerns about tile, grout, sealing, and warranties",
-      image: "/manus-storage/FAQs_CTA_e2a17d56.png",
+      image: "/images/crew/faq.png",
     },
     {
       id: "folder-5",
       title: "Maintenance Guide",
       description: "Post-service maintenance instructions and best practices for customers to care for their floors",
-      image: "/manus-storage/Maintenance_b9b641a1.png",
+      image: "/images/crew/maintenance.png",
     },
     {
       id: "folder-6",
       title: "Warranty Information",
       description: "Clear explanation of warranty coverage, terms, and what is included with service",
-      image: "/manus-storage/WARRANTY_7cd9fe3c.png",
+      image: "/images/crew/warranty.png",
     },
     {
       id: "folder-7",
       title: "What to Expect",
       description: "Preparation guide helping customers understand the service process and what happens during a job",
-      image: "/manus-storage/WHAT_TO_EXPECT_9de9666b.png",
+      image: "/images/crew/what-to-expect.png",
     },
     {
       id: "folder-8",
       title: "Referral Program",
       description: "Details on The Crew's referral incentive program encouraging customer advocacy",
-      image: "/manus-storage/REFERRAL_PROGRAM_76f735ba.png",
+      image: "/images/crew/referral-program.png",
     },
     {
       id: "gift-card-front",
       title: "Referral Gift Card - Front",
       description: "Customer-facing referral incentive card highlighting the $50 gift card offer",
-      image: "/manus-storage/Front_74b7ac9f.png",
+      image: "/images/crew/sales-folder-cover.png",
     },
     {
       id: "gift-card-back",
       title: "Referral Gift Card - Back",
       description: "Back side of referral gift card with terms and usage information",
-      image: "/manus-storage/Back_ca88a0ad.png",
+      image: "/images/crew/referral-card-back.png",
     },
     {
       id: "template-1",
       title: "Sales Folder Template - Cover",
       description: "Template design for the tile and grout restoration sales folder used in customer meetings",
-      image: "/manus-storage/2_a09fa4b4.png",
+      image: "/images/crew/sales-folder-template-cover.png",
     },
   ];
 
@@ -80,7 +80,7 @@ export default function CrewCustomerExperience() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex items-center justify-between py-4">
-          <h1 className="text-2xl font-bold">Customer Experience & Content Design</h1>
+          <h1 className="text-lg md:text-xl">Customer Experience & Content Design</h1>
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <button
@@ -118,11 +118,12 @@ export default function CrewCustomerExperience() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {galleryItems.map((item) => (
               <div key={item.id} className="card-minimal overflow-hidden">
-                <div className="mb-4 bg-muted rounded-lg overflow-hidden">
+                <div className="mb-4 bg-muted pixel-frame">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-auto object-cover"
+                    onError={(e) => { if (e.currentTarget.parentElement) e.currentTarget.parentElement.style.display = "none"; }}
                   />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -161,7 +162,7 @@ export default function CrewCustomerExperience() {
             </p>
             <Button
               onClick={() => setLocation("/contact")}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="pixel-border"
             >
               Get in Touch
             </Button>

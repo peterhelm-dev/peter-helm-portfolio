@@ -9,6 +9,8 @@ import N8nShowcase from "./pages/N8nShowcase";
 import Contact from "./pages/Contact";
 import CrewCaseStudy from "./pages/CrewCaseStudy";
 import CrewCustomerExperience from "./pages/CrewCustomerExperience";
+import CloverCaseStudy from "./pages/CloverCaseStudy";
+import NoriCaseStudy from "./pages/NoriCaseStudy";
 
 
 function Router() {
@@ -19,6 +21,8 @@ function Router() {
       <Route path={"/work/n8n"} component={N8nShowcase} />
       <Route path={"/work/crew"} component={CrewCaseStudy} />
       <Route path={"/work/crew/customer-experience"} component={CrewCustomerExperience} />
+      <Route path={"/work/clover"} component={CloverCaseStudy} />
+      <Route path={"/work/nori"} component={NoriCaseStudy} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
