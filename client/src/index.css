@@ -87,7 +87,7 @@
   --pixel-panel-from: #2f4a2a;
   --pixel-panel-via: #23391f;
   --pixel-panel-to: #182615;
-  --pixel-dither: #c9b184;
+  --pixel-dither: #ecdfc0;
 }
 
 .dark {
@@ -131,7 +131,7 @@
   --pixel-panel-from: #24391f;
   --pixel-panel-via: #182615;
   --pixel-panel-to: #0f1a0d;
-  --pixel-dither: #37461f;
+  --pixel-dither: #263021;
 }
 
 @layer base {
@@ -236,16 +236,16 @@
   /* Subtle pixel-dither texture background for cards/blocks */
   .pixel-surface {
     background-color: var(--card);
-    background-image: radial-gradient(var(--pixel-dither) 1.5px, transparent 1.5px);
-    background-size: 10px 10px;
+    background-image: radial-gradient(var(--pixel-dither) 1px, transparent 1px);
+    background-size: 16px 16px;
     background-position: -1px -1px;
   }
 
   .card-minimal {
     @apply text-card-foreground p-8 transition-transform duration-150;
     background-color: var(--card);
-    background-image: radial-gradient(var(--pixel-dither) 1.5px, transparent 1.5px);
-    background-size: 10px 10px;
+    background-image: radial-gradient(var(--pixel-dither) 1px, transparent 1px);
+    background-size: 16px 16px;
     background-position: -1px -1px;
     border: 3px solid var(--pixel-ink);
     box-shadow: 5px 5px 0 0 var(--pixel-ink);

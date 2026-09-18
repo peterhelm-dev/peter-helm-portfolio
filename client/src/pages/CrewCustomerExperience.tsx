@@ -78,19 +78,17 @@ export default function CrewCustomerExperience() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex items-center justify-between py-4">
-          <h1 className="text-lg md:text-xl">Customer Experience & Content Design</h1>
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <button
-              onClick={() => setLocation("/")}
-              className="flex items-center gap-2 text-accent hover:text-accent-foreground transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Portfolio
-            </button>
-          </div>
+      <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border">
+        <div className="container flex items-center justify-between h-16">
+          <button
+            onClick={() => setLocation("/")}
+            className="flex items-center gap-2 text-sm text-accent hover:text-accent-foreground transition-colors flex-shrink-0"
+          >
+            <ArrowLeft size={16} />
+            Back to Portfolio
+          </button>
+          <h1 className="text-sm md:text-lg text-center px-2 truncate">Customer Experience & Content Design</h1>
+          <div className="flex-shrink-0"><ThemeToggle /></div>
         </div>
       </nav>
 
@@ -112,6 +110,46 @@ export default function CrewCustomerExperience() {
           </div>
         </section>
 
+        {/* Design Evolution */}
+        <section className="mb-20 pt-16 border-t border-border">
+          <h2 className="section-title mb-4">How My Design Work Evolved</h2>
+          <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
+            These are real materials I made for The Crew over about a year, in the order I made them. I'm including the early one on purpose, it's not my best work, but it's honest evidence of where I started and how much the later pieces improved.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="card-minimal overflow-hidden">
+              <div className="mb-4 bg-muted pixel-frame">
+                <img src="/images/crew/design-evolution/2024-thanksgiving-flyer.jpg" alt="Thanksgiving promotional flyer, November 2024" className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-2">Nov 2024</p>
+              <h3 className="text-lg font-bold mb-2">Thanksgiving Promo Flyer</h3>
+              <p className="text-muted-foreground text-sm">
+                My early marketing design. There's a real offer and a QR code, but the layout is doing too much: a decorative border competing with the headline, mismatched fonts, and no clear single focal point. Functional, not disciplined.
+              </p>
+            </div>
+            <div className="card-minimal overflow-hidden">
+              <div className="mb-4 bg-muted pixel-frame">
+                <img src="/images/crew/design-evolution/2025-gift-card-front.jpg" alt="Referral gift card front, 2025" className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-2">Mid 2025</p>
+              <h3 className="text-lg font-bold mb-2">Referral Gift Card</h3>
+              <p className="text-muted-foreground text-sm">
+                One offer, one number, one photo. Everything else (color, texture, logo placement) supports that hierarchy instead of competing with it. This is the same brand, a lot more restraint.
+              </p>
+            </div>
+            <div className="card-minimal overflow-hidden">
+              <div className="mb-4 bg-muted pixel-frame">
+                <img src="/images/crew/design-evolution/2025-b2b-handout.jpg" alt="26-page B2B commercial floor maintenance sales handout, late 2025" className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-2">Late 2025</p>
+              <h3 className="text-lg font-bold mb-2">26-Page B2B Sales Handout</h3>
+              <p className="text-muted-foreground text-sm">
+                A full commercial sales document with a clickable outline, a repeating header template, and consistent typography across every page. This is a design system, not a single asset: the same decisions applied 26 times without drifting.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Gallery */}
         <section>
           <h2 className="section-title mb-12">Content Examples</h2>
@@ -130,6 +168,32 @@ export default function CrewCustomerExperience() {
                 <p className="text-muted-foreground text-sm">{item.description}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Automated Customer Messaging */}
+        <section className="mt-20 pt-16 border-t border-border">
+          <h2 className="section-title mb-4">Automated Messaging, Still a Good Experience</h2>
+          <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
+            Part of the automation infrastructure I built at The Crew includes an AI reply system for Google reviews. These are real, unedited screenshots from the review dashboard, "Replied By Reviews AI" is the system responding automatically, not a person typing it live. The goal was a reply that sounds like the business actually read the review, every time, without anyone having to sit down and write one.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="card-minimal overflow-hidden">
+              <div className="mb-4 bg-muted pixel-frame">
+                <img src="/images/crew/reviews/ai-reply-timothy.jpg" alt="Google review from Timothy Robey with an automated reply from Reviews AI" className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-muted-foreground text-sm">
+                A 5-star review about carpet and grout cleaning, answered automatically within about 25 minutes, specific to what he actually mentioned instead of a generic thank-you.
+              </p>
+            </div>
+            <div className="card-minimal overflow-hidden">
+              <div className="mb-4 bg-muted pixel-frame">
+                <img src="/images/crew/reviews/ai-reply-sherri.jpg" alt="Google review from Sherri Ann Bennett with an automated reply from Reviews AI" className="w-full h-auto object-cover" />
+              </div>
+              <p className="text-muted-foreground text-sm">
+                Same system, a different customer and a different job (tile and grout color sealing), and the reply still reads like it was written for her specifically, not copy-pasted.
+              </p>
+            </div>
           </div>
         </section>
 

@@ -1,4 +1,4 @@
-import { Linkedin, Mail, ArrowRight, Play, Github } from "lucide-react";
+import { Linkedin, Mail, ArrowRight, Play, Github, Youtube } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -31,6 +31,9 @@ export default function Home() {
             </a>
             <a href="https://www.linkedin.com/in/peter-helm-231042287/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
               <Linkedin size={20} />
+            </a>
+            <a href="https://www.youtube.com/@Five_Coins.Peter_Helm" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors">
+              <Youtube size={20} />
             </a>
           </div>
         </div>
@@ -174,6 +177,9 @@ export default function Home() {
                   <p className="text-white/80 mb-6">
                     <strong>Key Technical Concepts:</strong> Agentic tool-calling, server-side output validation, provider-abstraction layer, multi-intent classification, multimodal input.
                   </p>
+                  <p className="text-white/70 mb-6 text-sm italic">
+                    Design principle: logging by photo or voice matches how people already describe meals out loud, so there's no new mental model to learn, the "match between system and the real world" heuristic, applied to nutrition tracking instead of a form.
+                  </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">AI Agents</span>
                     <span className="pixel-badge">Tool Calling</span>
@@ -205,7 +211,7 @@ export default function Home() {
               <div>
                 <h3 className="text-lg mb-3">TerraIQ</h3>
                 <p className="text-muted-foreground mb-6">
-                  A commercial real estate portfolio and deal-intelligence terminal. React 18 and Vite on the frontend, Supabase (Postgres, auth, realtime, edge functions) on the backend with multi-tenant row-level security and a four-role permission matrix. Claude is called directly through Supabase Edge Functions to analyze deals and give portfolio advice (streaming chat and analysis, not tool-calling), using live macroeconomic data from the Federal Reserve Bank of St. Louis's FRED API and Mapbox for the portfolio map. Stripe handles subscription billing, and there's an automated Postgres test suite behind it.
+                  A commercial real estate portfolio and deal-intelligence terminal. React 18 and Vite on the frontend, Supabase (Postgres, auth, realtime, edge functions) on the backend with multi-tenant row-level security and a four-role permission matrix. Claude is called directly through Supabase Edge Functions to analyze deals and give portfolio advice (streaming chat and analysis, not tool-calling), using live macroeconomic data from the Federal Reserve Bank of St. Louis's FRED API and Mapbox for the portfolio map. Stripe handles subscription billing, and there's an automated Postgres test suite behind it. The marketing site itself is a small design study in restraint: one headline, weighted CTAs, and a pricing table that anchors the plan I want people to pick.
                 </p>
                 <div className="flex gap-2 flex-wrap mb-6">
                   <span className="pixel-badge-light">Full-Stack</span>
@@ -214,17 +220,21 @@ export default function Home() {
                   <span className="pixel-badge-light">Stripe</span>
                   <span className="pixel-badge-light">Data Analysis</span>
                 </div>
-                <a href="https://terraiq-olive.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
-                  <Play size={16} />
-                  View Live App
-                </a>
+                <div className="flex gap-4 flex-wrap items-center">
+                  <a href="https://terraiq-olive.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
+                    <Play size={16} />
+                    View Live App
+                  </a>
+                  <Link href="/work/terraiq" className="inline-flex items-center gap-2 text-accent-warm font-semibold hover:gap-3 transition-all hover:opacity-80">
+                    Read the Design Breakdown →
+                  </Link>
+                </div>
               </div>
               <div className="pixel-frame">
                 <img
-                  src="/images/terraiq/terraiq-screenshot.webp"
-                  alt="TerraIQ CRE Intelligence Terminal interface"
+                  src="/images/terraiq/terraiq-hero.jpg"
+                  alt="TerraIQ landing page hero"
                   className="w-full h-auto object-cover"
-                  onError={(e) => { if (e.currentTarget.parentElement) e.currentTarget.parentElement.style.display = "none"; }}
                 />
               </div>
             </div>
@@ -235,7 +245,7 @@ export default function Home() {
                 {/* Logo */}
                 <div className="md:col-span-1 flex items-center justify-center">
                   <img
-                    src="/images/crew/crew-logo.webp"
+                    src="/images/crew/crew-logo.png"
                     alt="The Crew Logo"
                     className="w-full max-w-xs h-auto"
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
@@ -249,6 +259,9 @@ export default function Home() {
                 </p>
                   <p className="text-white/80 mb-6">
                     <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, real-time automation, reporting systems.
+                  </p>
+                  <p className="text-white/70 mb-6 text-sm italic">
+                    Design principle: the KPI dashboard leads with summary numbers and lets ops staff drill into a lead or job for detail, progressive disclosure, so the default view answers "are we okay" in one glance instead of dumping every field at once.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">Webhooks</span>
@@ -274,6 +287,9 @@ export default function Home() {
                 <h3 className="text-lg mb-3">AI Patient Intake and Routing Workflow</h3>
                 <p className="text-muted-foreground mb-6">
                   A mock AI-assisted patient intake system built with n8n, OpenAI, Gmail, and Google Sheets. The workflow captures inbound inquiries, structures the data, classifies urgency and intent, routes submissions, generates follow-up drafts, logs activity, and escalates higher-risk cases for human review.
+                </p>
+                <p className="text-muted-foreground mb-6 text-sm italic">
+                  Design principle: higher-risk cases are escalated to a human instead of auto-resolved, keeping the user in control and giving them a clear way to override the system, rather than trusting an AI classification blindly.
                 </p>
                 <div className="flex gap-2 flex-wrap mb-6">
                   <span className="pixel-badge-light">n8n</span>
@@ -320,6 +336,9 @@ export default function Home() {
                 <p className="text-muted-foreground mb-6">
                   A retrieval-augmented generation (RAG) workflow demonstrating how submitted Q and A pairs can be ingested, tagged, stored in a data table, and queried by an AI agent to provide grounded responses instead of generic hallucinated answers. This is a concrete example of using structured data to constrain AI outputs.
                 </p>
+                <p className="text-muted-foreground mb-6 text-sm italic">
+                  Design principle: constraining the agent to a known set of stored answers is an error-prevention choice, it's easier to design out a category of mistake (confident hallucination) than to catch it after the fact.
+                </p>
                 <div className="flex gap-2 flex-wrap mb-6">
                   <span className="pixel-badge-light">RAG</span>
                   <span className="pixel-badge-light">AI Agents</span>
@@ -340,6 +359,9 @@ export default function Home() {
                 <h3 className="text-lg mb-3">TrialOps Board, Clinical Trial Operations Dashboard</h3>
                 <p className="text-muted-foreground mb-6">
                   A comprehensive healthcare operations management web application designed to help teams plan, track, and coordinate clinical trial work. Features include a customizable KPI dashboard, filterable project table with inline editing, five-column kanban board for task management, review queue for approvals, team workload visualization, analytics reports, and role-based admin controls.
+                </p>
+                <p className="text-muted-foreground mb-6 text-sm italic">
+                  Design principle: the kanban board mirrors how clinical trial teams already describe their work verbally ("that's in review," "that's blocked"), matching the interface to the team's existing mental model instead of asking them to learn a new one.
                 </p>
                 <div className="flex gap-2 flex-wrap mb-6">
                   <span className="pixel-badge-light">Full-Stack Web App</span>
@@ -382,6 +404,9 @@ export default function Home() {
                   <p className="text-white/80 mb-6">
                     <strong>Key Technical Concepts:</strong> Multi-protocol DeFi position detection, live risk and concentration flags, Solidity smart contract experimentation, spec-driven design handoff.
                   </p>
+                  <p className="text-white/70 mb-6 text-sm italic">
+                    Design principle: Nori explains risk in plain language instead of showing a raw number, visibility of system status done right means translating the data, not just displaying it.
+                  </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">Web3</span>
                     <span className="pixel-badge">DeFi</span>
@@ -410,13 +435,52 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Project 7.5: Helm Systems - my own business site - FEATURED */}
+            <div className="pixel-panel mb-12">
+              <div className="max-w-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <img
+                    src="/images/helmsystems/logo.png"
+                    alt="Helm Systems compass logo"
+                    className="w-10 h-10 object-contain"
+                  />
+                  <h3 className="text-xl md:text-2xl text-white">Helm Systems</h3>
+                </div>
+                <p className="text-lg text-white/90 mb-6 leading-relaxed">
+                  My own automation consulting business, live at helmsystems.biz. This is the actual front door for my client work, including The Crew case study featured on this site, and it's the site people book real calls through. I designed, wrote, and built it myself, top to bottom.
+                </p>
+                <ul className="text-white/80 mb-6 space-y-2 text-sm">
+                  <li>• The whole site is built around a navigation and surveying concept: a compass, coordinates, "plot ref," "you are here." That's a direct play on my own name (Helm, as in a ship's wheel), not a template I picked</li>
+                  <li>• The copy is pulled from real conversations, not invented pain points. Lines like "your weekly numbers are really a monthly guess" and "the whole business runs through you" came from actually talking to a client (The Crew) about what was breaking</li>
+                  <li>• Warm, editorial serif type and an earthy palette instead of the typical SaaS blue-and-white, because the audience is service-business owners who are tired of being sold software, not developers evaluating a tool</li>
+                  <li>• Fully functional and in active use: a real Calendly booking flow and a working contact form, not a mockup. This is where new client work actually comes in</li>
+                </ul>
+                <div className="flex gap-2 flex-wrap mb-8">
+                  <span className="pixel-badge">Copywriting</span>
+                  <span className="pixel-badge">Brand & Visual Design</span>
+                  <span className="pixel-badge">Web Design</span>
+                  <span className="pixel-badge">Audience Research</span>
+                </div>
+                <div className="flex gap-3 flex-wrap">
+                  <a href="https://www.helmsystems.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all hover:text-white/80">
+                    <Play size={16} />
+                    View Live Site
+                  </a>
+                  <a href="https://www.helmsystems.biz/case-studies/the-crew" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white/70 font-semibold hover:gap-3 transition-all hover:text-white">
+                    Read the Case Study
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Project 8: Custom GPT for The Crew */}
             <div className="card-minimal">
               <h3 className="text-xl font-bold mb-3">Custom GPT for The Crew</h3>
               <p className="text-muted-foreground mb-4">
                 Built and deployed a custom GPT for the CEO to help non-technical stakeholders understand internal processes and the systems being built. Serves as a bridge between technical implementation and business understanding.
               </p>
-              <p className="text-sm text-muted-foreground italic">Deployed and in active use</p>
+              <p className="text-sm text-muted-foreground italic mb-2">Deployed and in active use</p>
+              <p className="text-sm text-muted-foreground italic">Design principle: written in plain language on purpose, a deliberate choice to make the system legible to the people who rely on it, not just functional for the people who built it.</p>
             </div>
 
             {/* Project 9: Notion Agent System */}
@@ -425,6 +489,7 @@ export default function Home() {
               <p className="text-muted-foreground mb-4">
                 A set of personal AI agents that reference a persistent instruction set on every run instead of starting from a blank prompt each time. The more advanced agent draws on an identity document, persistent memory, and a standing set of goals, functioning as a reusable agent template rather than a one-off script.
               </p>
+              <p className="text-sm text-muted-foreground italic mb-4">Design principle: recognition over recall, the agent is handed its own context every run instead of being expected to "remember" or being re-explained from scratch each time.</p>
               <div className="flex gap-2 flex-wrap">
                 <span className="pixel-badge-light">Agent Design</span>
                 <span className="pixel-badge-light">Persistent Memory</span>
@@ -753,6 +818,9 @@ export default function Home() {
             </a>
             <a href="https://github.com/peterhelm-dev" target="_blank" rel="noopener noreferrer" className="pixel-btn-outline">
               <Github size={18} /> View GitHub
+            </a>
+            <a href="https://www.youtube.com/@Five_Coins.Peter_Helm" target="_blank" rel="noopener noreferrer" className="pixel-btn-outline">
+              <Youtube size={18} /> Watch on YouTube
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Mail, CheckCircle, Github } from "lucide-react";
+import { ArrowLeft, Mail, CheckCircle, Github, Youtube } from "lucide-react";
 import { Link } from "wouter";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -197,7 +197,7 @@ export default function Contact() {
       <section className="py-16 md:py-24 border-t border-border bg-secondary/30">
         <div className="container max-w-2xl">
           <h2 className="text-2xl font-bold mb-8">Other Ways to Connect</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Direct Email */}
             <div className="card-minimal">
               <Mail className="text-accent mb-4" size={28} />
@@ -244,6 +244,23 @@ export default function Contact() {
                 className="text-accent-warm font-semibold hover:underline"
               >
                 View Profile
+              </a>
+            </div>
+
+            {/* YouTube */}
+            <div className="card-minimal">
+              <Youtube className="text-accent mb-4" size={28} />
+              <h3 className="text-lg font-bold mb-2">YouTube</h3>
+              <p className="text-muted-foreground mb-4">
+                Watch build logs and demos of the projects featured on this site.
+              </p>
+              <a
+                href="https://www.youtube.com/@Five_Coins.Peter_Helm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-warm font-semibold hover:underline"
+              >
+                View Channel
               </a>
             </div>
           </div>
