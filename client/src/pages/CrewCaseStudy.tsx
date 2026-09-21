@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "wouter";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -145,7 +145,7 @@ export default function CrewCaseStudy() {
             </div>
           </div>
           <img
-            src="/images/crew/system-architecture.webp"
+            src="/images/crew/system-architecture.png"
             alt="The Crew System Architecture Diagram"
             className="w-full pixel-frame"
             onError={(e) => { e.currentTarget.style.display = "none"; }}
@@ -159,7 +159,7 @@ export default function CrewCaseStudy() {
             This diagram shows the complete customer journey from lead capture through revenue tracking, with all automation triggers, data flows, and system integrations:
           </p>
           <img
-            src="/images/crew/workflow-process.webp"
+            src="/images/crew/workflow-process.png"
             alt="The Crew Customer Journey and Automation Flow"
             className="w-full pixel-frame mb-8"
             onError={(e) => { e.currentTarget.style.display = "none"; }}
