@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "wouter";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -177,9 +177,15 @@ export default function CrewCaseStudy() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground mt-4">
+          <p className="text-sm text-muted-foreground mt-4 mb-6">
             Plus two housekeeping folders: a Sandbox for testing changes before they touch live customers, and an Archive so retired workflows are kept instead of deleted.
           </p>
+          <img
+            src="/images/crew/system-architecture.png"
+            alt="The Crew System Architecture Diagram"
+            className="w-full pixel-frame"
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
+          />
         </section>
 
         {/* Process Flow Diagram */}
@@ -188,7 +194,7 @@ export default function CrewCaseStudy() {
           <p className="text-lg text-muted-foreground mb-8">
             The customer journey runs through seven stages, from lead capture through revenue tracking, and each stage has its own automation triggers and hand-offs:
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             {["Lead Capture", "Lead Routing", "Estimate", "Scheduling", "Completion", "Revenue Tracking", "Reporting"].map((stage, i) => (
               <div key={stage} className="pixel-border-sm bg-card p-3 text-center">
                 <div className="text-accent-warm mb-1" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem" }}>{String(i + 1).padStart(2, "0")}</div>
@@ -196,6 +202,12 @@ export default function CrewCaseStudy() {
               </div>
             ))}
           </div>
+          <img
+            src="/images/crew/workflow-process.png"
+            alt="The Crew Customer Journey and Automation Flow"
+            className="w-full pixel-frame mb-8"
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
+          />
           <div className="bg-secondary/30 p-6 rounded-lg border border-border">
             <h3 className="font-semibold mb-3">Key Workflow Stages</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
