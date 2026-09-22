@@ -41,12 +41,23 @@ export default function CrewCaseStudy() {
         {/* System Overview Diagram */}
         <section className="mb-16">
           <h2 className="text-lg md:text-xl mb-6">System Architecture Overview</h2>
-          <img
-            src="/images/crew/system-overview.png"
-            alt="AI-Enabled Business Operations & Reporting System"
-            className="w-full pixel-frame"
-            onError={(e) => { e.currentTarget.style.display = "none"; }}
-          />
+          <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-2">
+            {[
+              { label: "Lead sources", sub: "Calls, web, referrals" },
+              { label: "GoHighLevel", sub: "CRM + 13-stage pipeline" },
+              { label: "Housecall Pro", sub: "Jobs + scheduling" },
+              { label: "Zapier + webhooks", sub: "Sync + automation" },
+              { label: "Google Sheets", sub: "Scorecards + reporting" },
+            ].map((node, i, arr) => (
+              <div key={node.label} className="flex flex-col md:flex-row items-stretch md:items-center gap-2 md:gap-2 flex-1">
+                <div className="pixel-border-sm bg-card p-3 text-center flex-1">
+                  <div className="text-sm font-bold" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", lineHeight: 1.6 }}>{node.label}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{node.sub}</div>
+                </div>
+                {i < arr.length - 1 && <div className="text-accent-warm text-center" aria-hidden="true">▶</div>}
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* The Problem */}
@@ -144,26 +155,47 @@ export default function CrewCaseStudy() {
               </div>
             </div>
           </div>
-          <img
-            src="/images/crew/system-architecture.webp"
-            alt="The Crew System Architecture Diagram"
-            className="w-full pixel-frame"
-            onError={(e) => { e.currentTarget.style.display = "none"; }}
-          />
+          <h3 className="font-semibold mb-2">How the HighLevel workspace is organized</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Twenty-five workflows only stay maintainable if there's a rule for where each one lives. I wrote a placement guide so anyone can answer "which folder does this belong in?" with a single question, and this is the resulting structure:
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { name: "01 Sales Pipeline", rule: "Does it move, track, qualify, or report on a lead?", items: ["Inbound Lead", "Contact Stages", "Unqualified & Lost", "Meeting Set", "Estimates", "Google Sheet Scorecard", "HCP Integration"] },
+              { name: "02 IVR Phone System", rule: "Did it start from a phone call or call-routing event?", items: ["Flooring", "Water"] },
+              { name: "03 Loyalty", rule: "Does it build a long-term relationship?", items: ["Plumber Nurture", "Referral System", "Residential + Commercial Nurture", "Reviews"] },
+              { name: "04 Internal Ops", rule: "Is it about running the business itself?", items: ["Maintenance Accounts", "Water Pipeline"] },
+            ].map((folder) => (
+              <div key={folder.name} className="card-minimal">
+                <h4 className="font-bold mb-1 text-accent" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem", lineHeight: 1.7 }}>{folder.name}</h4>
+                <p className="text-sm text-muted-foreground italic mb-3">{folder.rule}</p>
+                <ul className="space-y-1 text-sm">
+                  {folder.items.map((item) => (
+                    <li key={item} className="text-foreground">└ {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mt-4">
+            Plus two housekeeping folders: a Sandbox for testing changes before they touch live customers, and an Archive so retired workflows are kept instead of deleted.
+          </p>
         </section>
 
         {/* Process Flow Diagram */}
         <section className="mb-16">
           <h2 className="text-lg md:text-xl mb-6">Customer Journey & Automation Flow</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            This diagram shows the complete customer journey from lead capture through revenue tracking, with all automation triggers, data flows, and system integrations:
+            The customer journey runs through seven stages, from lead capture through revenue tracking, and each stage has its own automation triggers and hand-offs:
           </p>
-          <img
-            src="/images/crew/workflow-process.webp"
-            alt="The Crew Customer Journey and Automation Flow"
-            className="w-full pixel-frame mb-8"
-            onError={(e) => { e.currentTarget.style.display = "none"; }}
-          />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {["Lead Capture", "Lead Routing", "Estimate", "Scheduling", "Completion", "Revenue Tracking", "Reporting"].map((stage, i) => (
+              <div key={stage} className="pixel-border-sm bg-card p-3 text-center">
+                <div className="text-accent-warm mb-1" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem" }}>{String(i + 1).padStart(2, "0")}</div>
+                <div className="text-base font-bold">{stage}</div>
+              </div>
+            ))}
+          </div>
           <div className="bg-secondary/30 p-6 rounded-lg border border-border">
             <h3 className="font-semibold mb-3">Key Workflow Stages</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -360,25 +392,41 @@ export default function CrewCaseStudy() {
           </div>
         </section>
 
+        {/* Automations in practice */}
+        <section className="mb-16">
+          <h2 className="text-lg md:text-xl mb-3">The Automations, In Practice</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Real screenshots from the working system, not mockups.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { image: "/images/crew/artifacts/zapier-automations.jpg", alt: "Zapier folder for The Crew listing four automations", caption: "The Crew's Zapier folder: CRM sync, the Housecall Pro import, the referral program email, and the Mailchimp review-tagging automation." },
+              { image: "/images/crew/artifacts/ai-sales-bot-config.jpg", alt: "GoHighLevel conversation AI bot configuration", caption: "Configuring the AI text-message assistant in GoHighLevel: its persona, its objective (get the customer to book), and limits like a response cap and a wait time so it never feels spammy." },
+            ].map((item) => (
+              <div key={item.image} className="card-minimal">
+                <div className="mb-4 bg-muted pixel-frame">
+                  <img src={item.image} alt={item.alt} className="w-full h-auto" />
+                </div>
+                <p className="text-sm text-muted-foreground">{item.caption}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Customer Experience Gallery */}
         <section className="mb-16">
           <h2 className="text-lg md:text-xl mb-3">Customer Experience & Content Design</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Alongside the technical integration work, I designed the full suite of customer-facing sales materials used during in-home estimates: educational content, process guides, and referral collateral that helped technicians build trust and close jobs.
+            Alongside the technical integration work, I designed customer-facing marketing and sales materials: referral collateral, yard signs, testimonial graphics, and partner promotions. See the full write-up, including how my design work evolved, on the <Link href="/work/crew/customer-experience" className="text-accent underline">Customer Experience page</Link>.
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { title: "Common Grout Problems", description: "Educational content explaining grout issues, causes, and troubleshooting approaches", image: "/images/crew/sales-folder-page1.png" },
-              { title: "Clean and Restore Process", description: "Step-by-step visual guide showing the five-stage restoration process", image: "/images/crew/clean-restore-process.png" },
-              { title: "About Us", description: "Company story, values, and differentiators designed to build trust during in-home sales visits", image: "/images/crew/about-us.png" },
-              { title: "Frequently Asked Questions", description: "Comprehensive Q&A addressing common customer concerns about tile, grout, sealing, and warranties", image: "/images/crew/faq.png" },
-              { title: "Maintenance Guide", description: "Post-service maintenance instructions and best practices for customers", image: "/images/crew/maintenance.png" },
-              { title: "Warranty Information", description: "Clear explanation of warranty coverage, terms, and what is included with service", image: "/images/crew/warranty.png" },
-              { title: "What to Expect", description: "Preparation guide helping customers understand the service process", image: "/images/crew/what-to-expect.png" },
-              { title: "Referral Program", description: "Details on The Crew's referral incentive program encouraging customer advocacy", image: "/images/crew/referral-program.png" },
-              { title: "Referral Gift Card - Front", description: "Customer-facing referral incentive card highlighting the $50 gift card offer", image: "/images/crew/sales-folder-cover.png" },
-              { title: "Referral Gift Card - Back", description: "Back side of referral gift card with terms and usage information", image: "/images/crew/referral-card-back.png" },
-              { title: "Sales Folder Template - Cover", description: "Template design for the tile and grout restoration sales folder", image: "/images/crew/sales-folder-template-cover.png" },
+              { title: "Referral Gift Card, Front", description: "Referral incentive card built around one offer and one photo", image: "/images/crew/sales-folder-cover.png" },
+              { title: "Referral Gift Card, Back", description: "Back of the card with terms and how to redeem", image: "/images/crew/referral-card-back.png" },
+              { title: "Yard Sign: Dirty Grout?", description: "Roadside sign with one question, a huge phone number, and the logo", image: "/images/crew/artifacts/yard-sign-dirty-grout.jpg" },
+              { title: "Yard Sign: Clean and Seal", description: "Second sign variant for the tile and grout service line", image: "/images/crew/artifacts/yard-sign-clean-seal.jpg" },
+              { title: "Testimonial Graphic", description: "A real customer quote turned into a shareable social post", image: "/images/crew/artifacts/testimonial-graphic.jpg" },
+              { title: "Partner Promo Graphic", description: "Co-branded graphic for a water-damage partner promotion", image: "/images/crew/artifacts/ostrom-partner-graphic.jpg" },
             ].map((item) => (
               <div key={item.title} className="group pixel-frame bg-card hover:-translate-y-1 transition-transform">
                 <div className="aspect-[4/3] overflow-hidden bg-secondary">
@@ -386,7 +434,6 @@ export default function CrewCaseStudy() {
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
                 <div className="p-4">

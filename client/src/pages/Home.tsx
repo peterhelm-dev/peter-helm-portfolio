@@ -2,14 +2,69 @@ import { Linkedin, Mail, ArrowRight, Play, Github, Youtube } from "lucide-react"
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-import { PixelMountains, PixelBush, PixelTree, PixelFlower, PixelFlowerWarm, PixelCoffee, PixelGardenRow } from "@/components/pixel-art/PixelSprites";
+import CountUpStat from "@/components/CountUpStat";
+import ParallaxLayer from "@/components/ParallaxLayer";
+import TerminalEasterEgg from "@/components/TerminalEasterEgg";
+import PixelSceneBreak from "@/components/pixel-art/PixelSceneBreak";
+import PixelGardenClicker from "@/components/pixel-art/PixelGardenClicker";
+import PixelFirefly from "@/components/pixel-art/PixelFirefly";
+import ScrollProgressPlant from "@/components/pixel-art/ScrollProgressPlant";
+import { PixelFlower, PixelFlowerWarm, PixelCoffee } from "@/components/pixel-art/PixelSprites";
 
 /**
  * Peter Helm Portfolio - Home Page
  * Design: Pixel Garden (retro 8-bit, nature-themed)
  * Positioning: Business Systems, Automation & Product Design, with a Web3/blockchain interest
  * - Serves Data Analyst, Business Analyst, AI/Automation Engineer, and Product/App Design roles
+ *
+ * Flow: hero -> story -> proof -> what I do -> featured work -> more work -> background -> contact.
+ * Reordered so proof comes before the pitch, and the resume-shaped sections are compressed into one.
  */
+
+const moreWork = [
+  {
+    title: "TerraIQ",
+    description: "CRE portfolio & deal-intelligence terminal, Supabase + Claude-powered analysis.",
+    href: "/work/terraiq",
+    linkLabel: "Read the Design Breakdown",
+  },
+  {
+    title: "Helm Systems",
+    description: "My own automation consulting business, designed and built top to bottom.",
+    href: "https://www.helmsystems.biz",
+    external: true,
+    linkLabel: "View Live Site",
+  },
+  {
+    title: "AI Patient Intake & Routing",
+    description: "n8n workflow classifying, routing, and escalating inbound intake with a human in the loop.",
+    href: "https://www.youtube.com/watch?v=IwyFULvhUNU",
+    external: true,
+    linkLabel: "Watch Demo",
+  },
+  {
+    title: "AI Knowledge Base & Support Agent",
+    description: "RAG workflow grounding an AI agent's answers in stored, tagged Q&A pairs.",
+    href: "https://www.youtube.com/watch?v=b4F3ZLBM6ac",
+    external: true,
+    linkLabel: "Watch Demo",
+  },
+  {
+    title: "TrialOps Board",
+    description: "Clinical trial operations dashboard: KPIs, kanban, review queue, role-based admin.",
+    href: "https://trialops.peterhelm.biz",
+    external: true,
+    linkLabel: "View Live App",
+  },
+  {
+    title: "Custom GPT for The Crew",
+    description: "A plain-language GPT bridging technical systems and non-technical stakeholders.",
+  },
+  {
+    title: "Notion Agent System",
+    description: "Personal AI agents with persistent identity, memory, and goals instead of a blank prompt each run.",
+  },
+];
 
 export default function Home() {
   return (
@@ -17,11 +72,12 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container flex items-center justify-between py-4">
-          <div className="text-2xl font-bold text-accent">PH</div>
+          <TerminalEasterEgg />
           <div className="hidden md:flex gap-8">
             <a href="#about" className="nav-link">About</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            <a href="#services" className="nav-link">Services</a>
+            <a href="#projects" className="nav-link">Work</a>
+            <a href="#play" className="nav-link">Play</a>
+            <a href="#background" className="nav-link">Background</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
           <div className="flex items-center gap-3">
@@ -40,7 +96,20 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-16 md:pt-24 pb-40 md:pb-56 overflow-hidden">
+      <section className="relative pt-16 md:pt-24 pb-24 md:pb-32 overflow-hidden min-h-[520px] md:min-h-[620px] flex items-center">
+        {/* Illustrated garden horizon, drifts slower than scroll for a sense of depth */}
+        <ParallaxLayer speed={0.06} className="absolute inset-0 pointer-events-none select-none">
+          <img
+            src="/images/pixel-art/hero-banner.webp"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </ParallaxLayer>
+        {/* Legibility scrim: opaque near the text, fading out toward the illustration's calmer sky */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(105deg, var(--background) 0%, var(--background) 30%, color-mix(in srgb, var(--background) 55%, transparent) 55%, transparent 78%)" }}
+        />
         <div className="container relative z-10">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
@@ -50,140 +119,140 @@ export default function Home() {
               </p>
               <PixelFlowerWarm className="h-6 w-auto" />
             </div>
-            <h1 className="text-2xl md:text-4xl mb-8">
+            <h1 className="text-2xl md:text-4xl mb-6">
               I turn messy business data and processes into systems people can trust.
             </h1>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              I design and build automation infrastructure that connects business systems (CRMs, scheduling tools, spreadsheets, messaging platforms) through APIs and webhooks, then document and hand it off so non-technical teams can run it themselves. Workflow automation, AI integration, and reporting systems, built to actually get used, and designed with the same care I'd put into a product someone actually wants to open every day.
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed max-w-lg">
+              Workflow automation, AI integration, and reporting systems, designed to actually get used.
             </p>
-              <div className="flex gap-4">
-                <a href="#projects" className="cta-button">
-                  View Projects <ArrowRight className="ml-2" size={18} />
-                </a>
-                <a href="/contact" className="pixel-btn-outline">
-                  Contact Me
-                </a>
-              </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8" style={{ background: "var(--secondary)", border: "2px solid var(--border)" }}>
+              <span className="text-sm font-semibold text-secondary-foreground">$7,300+/yr saved · live in production</span>
             </div>
-        </div>
-        {/* Decorative pixel mountain horizon */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 pointer-events-none select-none" aria-hidden="true">
-          <PixelMountains className="w-full h-full" />
-        </div>
-        <div className="absolute bottom-2 right-4 md:right-12 flex items-end gap-3 pointer-events-none select-none" aria-hidden="true">
-          <PixelBush className="h-8 w-auto" />
-          <PixelBush className="h-10 w-auto" />
-        </div>
-      </section>
-
-      {/* Divider */}
-      <PixelGardenRow className="container py-4" />
-      <div className="divider mt-0"></div>
-
-      {/* About Section */}
-      <section id="about" className="py-20 md:py-32">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left: Pixel garden vignette */}
-            <div className="pixel-frame relative h-72 md:h-96 bg-gradient-to-b from-[#dcecd6] to-[#c3dab8] overflow-hidden">
-              <PixelMountains className="absolute bottom-0 left-0 w-full h-2/3" />
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-end gap-4">
-                <PixelBush className="h-10 w-auto" />
-                <PixelTree className="h-16 w-auto" />
-                <PixelFlowerWarm className="h-8 w-auto" />
-                <PixelTree className="h-12 w-auto" />
-                <PixelBush className="h-8 w-auto" />
-              </div>
-            </div>
-
-            {/* Right: Content */}
-            <div>
-              <h2 className="section-title">About Me</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                I graduated from Liberty University in 2022 with a degree in Biblical Studies, which is not exactly the standard on-ramp into automation and systems work. Here's how it actually happened: I was working at The Crew Cleaning and Restoration in a different role, and I just asked my boss if there was anything else I could help with. That turned into building out a lead pipeline in GoHighLevel, which turned into connecting Housecall Pro and GoHighLevel with webhooks, which turned into being the person who designed and ran the company's entire automation infrastructure. I learned most of it by doing it, one broken workflow at a time.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                These days I design and build automation infrastructure that connects the tools businesses already use (CRMs, scheduling platforms, spreadsheets, messaging tools) through APIs and webhooks. I write the integration logic, build the reporting on top of it, then document everything and train the team so the system doesn't depend on me being in the room. AI shows up in my work too, both as a coding aid that helps me build and debug faster, and, where it earns its place, as part of the systems themselves.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed flex gap-4">
-                <PixelCoffee className="h-10 w-auto flex-shrink-0 mt-1" />
-                <span>A book called "God and Guinness" changed how I think about this kind of work. It's about a brewing family that built a business with a direct, tangible, positive impact on their community, and I think about sales and systems work the same way: it's not just about optimizing a metric, it's about serving the people on the other end of the process well, whether that's a customer getting an honest estimate or a coworker who finally has a dashboard that tells them the truth. I'm based in Plymouth, New Hampshire now, and open to remote work or local hybrid and on-site roles.</span>
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Design is the other half of how I build. This site, Clover AI, and Nori are all things I designed end to end, not just wired together: the interface, the interaction, the tone of voice in an error message. I care about how a tool feels to use, not just whether the API call succeeds. That same curiosity has pulled me toward blockchain and DeFi recently. Nori started as a way to track my own onchain positions and turned into a real interest in how transparent, composable financial infrastructure gets designed and built.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                  <div>
-                  <h3 className="font-semibold text-foreground mb-1">Workflow Automation</h3>
-                  <p className="text-muted-foreground">Design automation workflows with structured logic, data routing, and human review points</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Data Analysis & Reporting</h3>
-                    <p className="text-muted-foreground">Design KPI dashboards, validate data quality, and translate business questions into actionable insights</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Systems Integration</h3>
-                    <p className="text-muted-foreground">Connect platforms, sync data across systems, and build reliable integrations that keep teams aligned</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Product & App Design</h3>
-                    <p className="text-muted-foreground">Design and build full apps end to end, interface, interaction, and system, not just the backend plumbing</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Blockchain & Web3</h3>
-                    <p className="text-muted-foreground">Exploring DeFi, smart contracts, and onchain data through Nori, my cross-chain portfolio tracker</p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex gap-4 items-center flex-wrap">
+              <a href="#projects" className="cta-button">
+                View Projects <ArrowRight className="ml-2" size={18} />
+              </a>
+              <a href="/contact" className="text-accent font-semibold hover:underline underline-offset-4">
+                Contact Me
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
+      <div className="divider mt-0"></div>
+
+      {/* Story Section (condensed) */}
+      <section id="about" className="py-20 md:py-32">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left: Pixel garden vignette */}
+            <div className="pixel-frame relative h-72 md:h-96 overflow-hidden">
+              <img
+                src="/images/pixel-art/about-vignette.webp"
+                alt="A pixel-art garden path bordered by flowers and pine trees, overlooking distant hills"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <PixelFirefly top="20%" left="65%" duration="11s" />
+            </div>
+
+            {/* Right: Content */}
+            <div>
+              <h2 className="section-title">The Short Version</h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                A B.A. in Biblical Studies isn't the usual on-ramp into automation. I asked my boss at The Crew Cleaning and Restoration if there was anything else I could help with — that turned into building their lead pipeline, then connecting Housecall Pro and GoHighLevel with webhooks, then designing and running their entire automation infrastructure. I learned it by doing it, one broken workflow at a time.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Design is the other half of how I build. This site, Clover AI, and Nori are all things I designed end to end, not just wired together, interface, interaction, and the tone of an error message included. That same curiosity has pulled me toward blockchain and DeFi recently, through Nori, my cross-chain portfolio tracker.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed flex gap-4">
+                <PixelCoffee className="h-10 w-auto flex-shrink-0 mt-1" />
+                <span>A book called "God and Guinness" changed how I think about this kind of work: it's not just about optimizing a metric, it's about serving the person on the other end of the process well. I'm based in Plymouth, New Hampshire, and open to remote or local hybrid/on-site roles.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="divider"></div>
 
-      {/* Featured Projects Section */}
+      {/* Proof Section */}
+      <section id="impact" className="py-20 md:py-32">
+        <div className="container">
+          <h2 className="section-title mb-4">Impact</h2>
+          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
+            Real operational impact from the automation infrastructure I built at The Crew Cleaning & Restoration.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl">
+            <div className="card-minimal text-center py-10">
+              <CountUpStat end={7300} prefix="$" suffix="+/yr" className="text-5xl font-bold text-foreground mb-3" />
+              <div className="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+              <p className="text-muted-foreground">in labor cost avoided through automated reporting and customer messaging</p>
+            </div>
+            <div className="card-minimal text-center py-10">
+              <CountUpStat end={6200} suffix="+" className="text-5xl font-bold text-foreground mb-3" />
+              <div className="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+              <p className="text-muted-foreground">automated customer touchpoints per year, zero manual sends</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <PixelSceneBreak variant="dawn" />
+
+      {/* What I Do */}
+      <section className="py-20 md:py-32">
+        <div className="container">
+          <h2 className="section-title mb-4">What I Do</h2>
+          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
+            Four things, in practice, across every project below.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="card-minimal">
+              <h3 className="text-lg font-bold mb-2">Automation & Integration</h3>
+              <p className="text-muted-foreground text-sm">Connecting the tools businesses already use through APIs and webhooks.</p>
+            </div>
+            <div className="card-minimal">
+              <h3 className="text-lg font-bold mb-2">Data & Reporting</h3>
+              <p className="text-muted-foreground text-sm">KPI dashboards and reports people actually trust and use.</p>
+            </div>
+            <div className="card-minimal">
+              <h3 className="text-lg font-bold mb-2">AI Systems</h3>
+              <p className="text-muted-foreground text-sm">Agentic tool-calling and human-in-the-loop workflow design.</p>
+            </div>
+            <div className="card-minimal">
+              <h3 className="text-lg font-bold mb-2">Product & App Design</h3>
+              <p className="text-muted-foreground text-sm">Full apps end to end: interface, interaction, and system.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider"></div>
+
+      {/* Featured Work: top 3 only */}
       <section id="projects" className="py-20 md:py-32">
         <div className="container">
-          <h2 className="section-title mb-4">Featured Projects</h2>
+          <h2 className="section-title mb-4">Featured Work</h2>
           <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            Real-world examples of automation systems, data tools, operational dashboards, and workflow implementations I've built.
+            Three projects, read in full. More below for anyone who wants the longer tail.
           </p>
 
-          <div className="space-y-20">
-            {/* Project 1: Clover AI - FEATURED */}
-            <div className="pixel-panel mb-12">
+          <div className="space-y-12">
+            {/* Clover AI */}
+            <div className="pixel-panel">
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 <div>
                   <h3 className="text-xl md:text-2xl mb-4 text-white">Clover AI</h3>
                   <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                    A live, daily-use nutrition tracker built with Claude Code. Users log a meal by photo or voice, and the AI model itself decides which function to call to extract nutrition data, cross-reference it against FDA standards, and write results to a database powering live tables, weekly reports, and stats. This is true agentic tool-calling, not a scripted pipeline.
-                  </p>
-                  <p className="text-white/80 mb-6">
-                    <strong>Key Technical Concepts:</strong> Agentic tool-calling, server-side output validation, provider-abstraction layer, multi-intent classification, multimodal input.
+                    A live, daily-use nutrition tracker. Log a meal by photo or voice, and the AI model decides which function to call to extract nutrition data, cross-reference it against FDA standards, and write results to a live dashboard. True agentic tool-calling, not a scripted pipeline.
                   </p>
                   <p className="text-white/70 mb-6 text-sm italic">
-                    Design principle: logging by photo or voice matches how people already describe meals out loud, so there's no new mental model to learn, the "match between system and the real world" heuristic, applied to nutrition tracking instead of a form.
+                    Design principle: logging by photo or voice matches how people already describe meals out loud, no new mental model to learn.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">AI Agents</span>
                     <span className="pixel-badge">Tool Calling</span>
-                    <span className="pixel-badge">Data Integration</span>
                     <span className="pixel-badge">Real-time Analytics</span>
                   </div>
                   <div className="flex flex-wrap gap-3">
@@ -206,43 +275,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project 2: TerraIQ */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-lg mb-3">TerraIQ</h3>
-                <p className="text-muted-foreground mb-6">
-                  A commercial real estate portfolio and deal-intelligence terminal. React 18 and Vite on the frontend, Supabase (Postgres, auth, realtime, edge functions) on the backend with multi-tenant row-level security and a four-role permission matrix. Claude is called directly through Supabase Edge Functions to analyze deals and give portfolio advice (streaming chat and analysis, not tool-calling), using live macroeconomic data from the Federal Reserve Bank of St. Louis's FRED API and Mapbox for the portfolio map. Stripe handles subscription billing, and there's an automated Postgres test suite behind it. The marketing site itself is a small design study in restraint: one headline, weighted CTAs, and a pricing table that anchors the plan I want people to pick.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="pixel-badge-light">Full-Stack</span>
-                  <span className="pixel-badge-light">API Integration</span>
-                  <span className="pixel-badge-light">Multi-tenant</span>
-                  <span className="pixel-badge-light">Stripe</span>
-                  <span className="pixel-badge-light">Data Analysis</span>
-                </div>
-                <div className="flex gap-4 flex-wrap items-center">
-                  <a href="https://terraiq-olive.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
-                    <Play size={16} />
-                    View Live App
-                  </a>
-                  <Link href="/work/terraiq" className="inline-flex items-center gap-2 text-accent-warm font-semibold hover:gap-3 transition-all hover:opacity-80">
-                    Read the Design Breakdown →
-                  </Link>
-                </div>
-              </div>
-              <div className="pixel-frame">
-                <img
-                  src="/images/terraiq/terraiq-hero.jpg"
-                  alt="TerraIQ landing page hero"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Project 3: The Crew Automation Case Study - FEATURED */}
-            <div className="pixel-panel mb-12">
+            {/* The Crew */}
+            <div className="pixel-panel">
               <div className="grid md:grid-cols-3 gap-8 items-start">
-                {/* Logo */}
                 <div className="md:col-span-1 flex items-center justify-center">
                   <img
                     src="/images/crew/crew-logo.png"
@@ -251,142 +286,28 @@ export default function Home() {
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
-                {/* Content */}
                 <div className="md:col-span-2">
                   <h3 className="text-xl md:text-2xl mb-4 text-white">The Crew: Housecall Pro to HighLevel Integration</h3>
                   <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                  A comprehensive webhook-based integration I built at The Crew Cleaning and Restoration. This system connects Housecall Pro's job management platform to HighLevel's CRM, syncing customer data, estimates, appointments, and job status updates across systems. The architecture uses custom code logic to parse webhook payloads, route data based on event types, and maintain consistency across multiple platforms. The system feeds into KPI dashboards and lead-pipeline reporting that align sales, operations, and management teams.
-                </p>
-                  <p className="text-white/80 mb-6">
-                    <strong>Key Technical Concepts:</strong> Webhook architecture, event-based routing, custom code logic, platform integration, data synchronization, multi-system orchestration, real-time automation, reporting systems.
+                    A webhook-based integration connecting Housecall Pro's job management platform to HighLevel's CRM, syncing customer data, estimates, appointments, and job status. Feeds the KPI dashboards and lead-pipeline reporting that align sales, operations, and management.
                   </p>
                   <p className="text-white/70 mb-6 text-sm italic">
-                    Design principle: the KPI dashboard leads with summary numbers and lets ops staff drill into a lead or job for detail, progressive disclosure, so the default view answers "are we okay" in one glance instead of dumping every field at once.
+                    Design principle: the KPI dashboard leads with summary numbers and lets ops staff drill into detail, progressive disclosure over dumping every field at once.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">Webhooks</span>
-                    <span className="pixel-badge">API Integration</span>
                     <span className="pixel-badge">HighLevel</span>
-                    <span className="pixel-badge">Custom Code</span>
                     <span className="pixel-badge">CRM Automation</span>
-                    <span className="pixel-badge">Reporting</span>
                   </div>
-                  <div className="flex flex-wrap gap-3">
-                    <Link href="/work/crew" asChild>
-                      <Button size="lg" className="text-base px-8 py-6 pixel-border">Explore Full Case Study with Diagrams →</Button>
-                    </Link>
-
-                  </div>
+                  <Link href="/work/crew" asChild>
+                    <Button size="lg" className="text-base px-8 py-6 pixel-border">Explore Full Case Study with Diagrams →</Button>
+                  </Link>
                 </div>
               </div>
             </div>
 
-            {/* Project 4: AI Patient Intake */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-lg mb-3">AI Patient Intake and Routing Workflow</h3>
-                <p className="text-muted-foreground mb-6">
-                  A mock AI-assisted patient intake system built with n8n, OpenAI, Gmail, and Google Sheets. The workflow captures inbound inquiries, structures the data, classifies urgency and intent, routes submissions, generates follow-up drafts, logs activity, and escalates higher-risk cases for human review.
-                </p>
-                <p className="text-muted-foreground mb-6 text-sm italic">
-                  Design principle: higher-risk cases are escalated to a human instead of auto-resolved, keeping the user in control and giving them a clear way to override the system, rather than trusting an AI classification blindly.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="pixel-badge-light">n8n</span>
-                  <span className="pixel-badge-light">OpenAI</span>
-                  <span className="pixel-badge-light">Human-in-the-loop</span>
-                  <span className="pixel-badge-light">Gmail</span>
-                  <span className="pixel-badge-light">Google Sheets</span>
-                </div>
-                <a href="https://www.youtube.com/watch?v=IwyFULvhUNU" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
-                  <Play size={16} />
-                  Watch Demo
-                </a>
-              </div>
-              <div className="relative w-full bg-secondary pixel-frame">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/IwyFULvhUNU"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                    title="AI Patient Intake & Routing Workflow"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 5: AI Knowledge Base */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="relative w-full bg-secondary pixel-frame order-2 md:order-1">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/b4F3ZLBM6ac"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                    title="AI Knowledge Base / Support Agent Workflow"
-                  ></iframe>
-                </div>
-              </div>
-              <div className="order-1 md:order-2">
-                <h3 className="text-lg mb-3">AI Knowledge Base and Support Agent Workflow</h3>
-                <p className="text-muted-foreground mb-6">
-                  A retrieval-augmented generation (RAG) workflow demonstrating how submitted Q and A pairs can be ingested, tagged, stored in a data table, and queried by an AI agent to provide grounded responses instead of generic hallucinated answers. This is a concrete example of using structured data to constrain AI outputs.
-                </p>
-                <p className="text-muted-foreground mb-6 text-sm italic">
-                  Design principle: constraining the agent to a known set of stored answers is an error-prevention choice, it's easier to design out a category of mistake (confident hallucination) than to catch it after the fact.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="pixel-badge-light">RAG</span>
-                  <span className="pixel-badge-light">AI Agents</span>
-                  <span className="pixel-badge-light">Knowledge Base</span>
-                  <span className="pixel-badge-light">Data Tables</span>
-                  <span className="pixel-badge-light">Grounded AI</span>
-                </div>
-                <a href="https://www.youtube.com/watch?v=b4F3ZLBM6ac" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
-                  <Play size={16} />
-                  Watch Demo
-                </a>
-              </div>
-            </div>
-
-            {/* Project 6: TrialOps Board */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-lg mb-3">TrialOps Board, Clinical Trial Operations Dashboard</h3>
-                <p className="text-muted-foreground mb-6">
-                  A comprehensive healthcare operations management web application designed to help teams plan, track, and coordinate clinical trial work. Features include a customizable KPI dashboard, filterable project table with inline editing, five-column kanban board for task management, review queue for approvals, team workload visualization, analytics reports, and role-based admin controls.
-                </p>
-                <p className="text-muted-foreground mb-6 text-sm italic">
-                  Design principle: the kanban board mirrors how clinical trial teams already describe their work verbally ("that's in review," "that's blocked"), matching the interface to the team's existing mental model instead of asking them to learn a new one.
-                </p>
-                <div className="flex gap-2 flex-wrap mb-6">
-                  <span className="pixel-badge-light">Full-Stack Web App</span>
-                  <span className="pixel-badge-light">React</span>
-                  <span className="pixel-badge-light">Kanban Board</span>
-                  <span className="pixel-badge-light">Dashboard</span>
-                  <span className="pixel-badge-light">Analytics</span>
-                </div>
-                <a href="https://trialops.peterhelm.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all hover:opacity-80">
-                  <Play size={16} />
-                  View Live App
-                </a>
-              </div>
-              <div className="relative w-full bg-secondary pixel-frame">
-                <img
-                  src="/images/trialops/trialops-dashboard.webp"
-                  alt="TrialOps Board Dashboard"
-                  className="w-full h-auto"
-                  onError={(e) => { if (e.currentTarget.parentElement) e.currentTarget.parentElement.style.display = "none"; }}
-                />
-              </div>
-            </div>
-
-            {/* Project 7: Nori - Onchain DeFi Portfolio Tracker (dApp) - FEATURED */}
-            <div className="pixel-panel mb-12">
+            {/* Nori */}
+            <div className="pixel-panel">
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
@@ -399,21 +320,15 @@ export default function Home() {
                     <h3 className="text-xl md:text-2xl text-white">Nori: Onchain DeFi Portfolio Tracker</h3>
                   </div>
                   <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                    A cross-chain crypto and DeFi portfolio tracker (dApp) I designed and built solo, covering wallets and DeFi positions across Base and Ethereum. It auto-detects assets and LP/lending positions across protocols like Aave V3, PancakeSwap V3, and Aerodrome, and surfaces net worth, allocation, diversification risk, and gas spend in one view. Nori, the onboard mascot, explains what the numbers mean instead of just displaying them.
-                  </p>
-                  <p className="text-white/80 mb-6">
-                    <strong>Key Technical Concepts:</strong> Multi-protocol DeFi position detection, live risk and concentration flags, Solidity smart contract experimentation, spec-driven design handoff.
+                    A cross-chain DeFi portfolio tracker covering wallets and positions across Base and Ethereum, designed and built solo. Auto-detects assets and LP/lending positions and surfaces net worth, allocation, and risk in plain language.
                   </p>
                   <p className="text-white/70 mb-6 text-sm italic">
-                    Design principle: Nori explains risk in plain language instead of showing a raw number, visibility of system status done right means translating the data, not just displaying it.
+                    Design principle: Nori explains risk in plain language instead of showing a raw number, visibility of system status, done right.
                   </p>
                   <div className="flex gap-2 flex-wrap mb-8">
                     <span className="pixel-badge">Web3</span>
                     <span className="pixel-badge">DeFi</span>
                     <span className="pixel-badge">Solidity</span>
-                    <span className="pixel-badge">React</span>
-                    <span className="pixel-badge">Smart Contracts</span>
-                    <span className="pixel-badge">Base</span>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Link href="/work/nori" asChild>
@@ -434,373 +349,127 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Project 7.5: Helm Systems - my own business site - FEATURED */}
-            <div className="pixel-panel mb-12">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <img
-                    src="/images/helmsystems/logo.png"
-                    alt="Helm Systems compass logo"
-                    className="w-10 h-10 object-contain"
-                  />
-                  <h3 className="text-xl md:text-2xl text-white">Helm Systems</h3>
-                </div>
-                <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                  My own automation consulting business, live at helmsystems.biz. This is the actual front door for my client work, including The Crew case study featured on this site, and it's the site people book real calls through. I designed, wrote, and built it myself, top to bottom.
-                </p>
-                <ul className="text-white/80 mb-6 space-y-2 text-sm">
-                  <li>• The whole site is built around a navigation and surveying concept: a compass, coordinates, "plot ref," "you are here." That's a direct play on my own name (Helm, as in a ship's wheel), not a template I picked</li>
-                  <li>• The copy is pulled from real conversations, not invented pain points. Lines like "your weekly numbers are really a monthly guess" and "the whole business runs through you" came from actually talking to a client (The Crew) about what was breaking</li>
-                  <li>• Warm, editorial serif type and an earthy palette instead of the typical SaaS blue-and-white, because the audience is service-business owners who are tired of being sold software, not developers evaluating a tool</li>
-                  <li>• Fully functional and in active use: a real Calendly booking flow and a working contact form, not a mockup. This is where new client work actually comes in</li>
-                </ul>
-                <div className="flex gap-2 flex-wrap mb-8">
-                  <span className="pixel-badge">Copywriting</span>
-                  <span className="pixel-badge">Brand & Visual Design</span>
-                  <span className="pixel-badge">Web Design</span>
-                  <span className="pixel-badge">Audience Research</span>
-                </div>
-                <div className="flex gap-3 flex-wrap">
-                  <a href="https://www.helmsystems.biz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all hover:text-white/80">
-                    <Play size={16} />
-                    View Live Site
-                  </a>
-                  <a href="https://www.helmsystems.biz/case-studies/the-crew" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white/70 font-semibold hover:gap-3 transition-all hover:text-white">
-                    Read the Case Study
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 8: Custom GPT for The Crew */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Custom GPT for The Crew</h3>
-              <p className="text-muted-foreground mb-4">
-                Built and deployed a custom GPT for the CEO to help non-technical stakeholders understand internal processes and the systems being built. Serves as a bridge between technical implementation and business understanding.
-              </p>
-              <p className="text-sm text-muted-foreground italic mb-2">Deployed and in active use</p>
-              <p className="text-sm text-muted-foreground italic">Design principle: written in plain language on purpose, a deliberate choice to make the system legible to the people who rely on it, not just functional for the people who built it.</p>
-            </div>
-
-            {/* Project 9: Notion Agent System */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Notion Agent System</h3>
-              <p className="text-muted-foreground mb-4">
-                A set of personal AI agents that reference a persistent instruction set on every run instead of starting from a blank prompt each time. The more advanced agent draws on an identity document, persistent memory, and a standing set of goals, functioning as a reusable agent template rather than a one-off script.
-              </p>
-              <p className="text-sm text-muted-foreground italic mb-4">Design principle: recognition over recall, the agent is handed its own context every run instead of being expected to "remember" or being re-explained from scratch each time.</p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="pixel-badge-light">Agent Design</span>
-                <span className="pixel-badge-light">Persistent Memory</span>
-                <span className="pixel-badge-light">Notion API</span>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="divider"></div>
+      <PixelSceneBreak variant="dusk" />
 
-      {/* Impact Section */}
-      <section id="impact" className="py-20 md:py-32">
-        <div className="container">
-          <h2 className="section-title mb-4">Impact</h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            Real operational impact from the automation infrastructure I built at The Crew Cleaning & Restoration.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl">
-            <div className="card-minimal text-center py-10">
-              <div className="text-5xl font-bold text-foreground mb-3">$7,300+/yr</div>
-              <div className="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
-              <p className="text-muted-foreground">in labor cost avoided through automated reporting and customer messaging</p>
-            </div>
-            <div className="card-minimal text-center py-10">
-              <div className="text-5xl font-bold text-foreground mb-3">6,200+</div>
-              <div className="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
-              <p className="text-muted-foreground">automated customer touchpoints per year, zero manual sends</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Work History Section */}
+      {/* More Work: compact grid */}
       <section className="py-20 md:py-32">
         <div className="container">
-          <h2 className="section-title mb-16">Work History</h2>
-          <div className="space-y-12">
-            {/* Role 1 */}
+          <h2 className="section-title mb-4">More Work</h2>
+          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
+            Seven more, one line each.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {moreWork.map((item) => (
+              <div key={item.title} className="card-minimal">
+                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4">{item.description}</p>
+                {item.href && (
+                  item.external ? (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
+                      <Play size={14} />
+                      {item.linkLabel}
+                    </a>
+                  ) : (
+                    <Link href={item.href} className="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
+                      {item.linkLabel} →
+                    </Link>
+                  )
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="divider"></div>
+
+      {/* Playable break: the automation idea, as a game */}
+      <section id="play" className="py-20 md:py-32">
+        <div className="container max-w-2xl mx-auto text-center">
+          <h2 className="section-title mb-4">One More Thing</h2>
+          <p className="text-lg text-muted-foreground mb-10">
+            This whole site is about automating things people used to do by hand. Here's the smallest possible version of that idea: click to grow the garden yourself, or wait it out and watch it automate.
+          </p>
+          <PixelGardenClicker />
+        </div>
+      </section>
+
+      <div className="divider"></div>
+
+      {/* Background: work history + credentials + skills, merged */}
+      <section id="background" className="py-20 md:py-32 bg-secondary/30">
+        <div className="container max-w-3xl">
+          <h2 className="section-title mb-12">Background</h2>
+
+          <div className="space-y-8 mb-12">
             <div className="card-minimal">
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                <h3 className="text-xl font-bold">Automation & Systems Specialist</h3>
+                <h3 className="text-lg font-bold">Automation & Systems Specialist</h3>
                 <span className="text-sm text-muted-foreground">Oct 2024 – May 2026</span>
               </div>
-              <p className="text-accent font-semibold mb-4">The Crew Cleaning & Restoration</p>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Independently designed, built, and maintained a 25-workflow automation infrastructure connecting five platforms (Housecall Pro, GoHighLevel, Google Sheets, Slack, Zapier) via webhook-driven data flows and REST API integrations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Built a 13-stage GoHighLevel lead pipeline tracking 356 leads and $524,881 in revenue at a 51% close rate</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Built a real-time KPI dashboard covering 50+ metrics that replaced manual weekly reporting</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Ran stakeholder discovery sessions with the CEO and sales team, authored SOPs, and trained non-technical staff to run the systems independently</span>
-                </li>
-              </ul>
+              <p className="text-accent font-semibold mb-2">The Crew Cleaning & Restoration</p>
+              <p className="text-muted-foreground text-sm">
+                Independently designed and maintained a 25-workflow automation infrastructure across five platforms; built a 13-stage lead pipeline tracking 356 leads and $524,881 in revenue; built a real-time KPI dashboard covering 50+ metrics; trained non-technical staff to run it all independently.
+              </p>
             </div>
-
-            {/* Role 2 */}
             <div className="card-minimal">
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                <h3 className="text-xl font-bold">Outbound Email Specialist (Internship → Contractor)</h3>
+                <h3 className="text-lg font-bold">Outbound Email Specialist</h3>
                 <span className="text-sm text-muted-foreground">Sep 2025 – Present</span>
               </div>
-              <p className="text-accent font-semibold mb-4">828 Web & Marketing (Remote)</p>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Manages outbound email list segmentation and campaign sends via Apollo, roughly 1,000 emails per day</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Contributes to AI-related marketing and personalization projects as the agency expands into AI-powered lead generation</span>
-                </li>
-              </ul>
+              <p className="text-accent font-semibold mb-2">828 Web & Marketing (Remote)</p>
+              <p className="text-muted-foreground text-sm">
+                Manages outbound list segmentation and campaign sends via Apollo (~1,000/day); contributes to AI-powered lead generation projects.
+              </p>
             </div>
-
-            {/* Role 3 */}
             <div className="card-minimal">
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                <h3 className="text-xl font-bold">Site Leader to Director</h3>
+                <h3 className="text-lg font-bold">Site Leader to Director</h3>
                 <span className="text-sm text-muted-foreground">Jun 2019 – Aug 2022</span>
               </div>
-              <p className="text-accent font-semibold mb-4">Liveit Ministries</p>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Led teams of student volunteers delivering education and mentorship programs in underserved neighborhoods, including basketball-based mentorship</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent mt-1">•</span>
-                  <span>Promoted to Director for a third year</span>
-                </li>
-              </ul>
+              <p className="text-accent font-semibold mb-2">Liveit Ministries</p>
+              <p className="text-muted-foreground text-sm">
+                Led teams of student volunteers delivering education and mentorship in underserved neighborhoods; promoted to Director for a third year.
+              </p>
+            </div>
+          </div>
+
+          <div className="card-minimal mb-8">
+            <h3 className="text-lg font-bold mb-3">Education & Certifications</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              B.A. Biblical Studies, Liberty University (2022) · Google Digital Marketing & E-Commerce Certificate, Coursera (2024) · SQL Fundamentals, Python Automation, Agentic AI Workflows, and Generative AI for Automating Workflows (2026)
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-bold mb-3 text-accent uppercase tracking-wide">Tools & Technologies</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Python", "JavaScript", "Node.js", "SQL",
+                "REST APIs", "Webhooks",
+                "GoHighLevel", "Zapier", "n8n",
+                "OpenAI API", "Claude API / Anthropic SDK", "Prompt Engineering", "Agentic Workflow Design",
+                "Google Sheets", "Excel", "Supabase / Postgres",
+                "Design Systems & Tokens", "Interaction & UX Writing",
+                "Solidity Fundamentals", "DeFi Protocols (Aave, PancakeSwap, Aerodrome)",
+              ].map((skill) => (
+                <span key={skill} className="pixel-badge-light">{skill}</span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Skills Section */}
-      <section className="py-20 md:py-32 bg-secondary/30">
-        <div className="container">
-          <h2 className="section-title mb-16">Skills and Expertise</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Languages & Scripting */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Languages & Scripting</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>Node.js</li>
-                <li>SQL</li>
-              </ul>
-            </div>
-
-            {/* Integration & APIs */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Integration & APIs</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>REST APIs</li>
-                <li>Webhooks</li>
-                <li>Field mapping</li>
-                <li>Third-party SaaS integrations</li>
-              </ul>
-            </div>
-
-            {/* Automation Platforms */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Automation Platforms</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>GoHighLevel</li>
-                <li>Zapier</li>
-                <li>n8n</li>
-              </ul>
-            </div>
-
-            {/* AI & LLM */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">AI & LLM</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>OpenAI API</li>
-                <li>Claude API / Anthropic SDK</li>
-                <li>Prompt engineering</li>
-                <li>Agentic workflow design</li>
-                <li>Human-in-the-loop / guardrail design</li>
-              </ul>
-            </div>
-
-            {/* Data & Reporting */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Data & Reporting</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>Google Sheets</li>
-                <li>Excel</li>
-                <li>KPI dashboards</li>
-                <li>Supabase / Postgres</li>
-              </ul>
-            </div>
-
-            {/* Documentation */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Documentation</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>SOP authoring</li>
-                <li>Technical specs</li>
-                <li>Stakeholder handoff materials</li>
-              </ul>
-            </div>
-
-            {/* Product & UI Design */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Product & UI Design</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>End-to-end app design</li>
-                <li>Design systems & tokens</li>
-                <li>Interaction & UX writing</li>
-                <li>Spec-driven design handoff</li>
-              </ul>
-            </div>
-
-            {/* Blockchain & Web3 */}
-            <div>
-              <h3 className="text-lg font-bold mb-4 text-accent">Blockchain & Web3</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>Solidity fundamentals</li>
-                <li>Smart contract experimentation (Remix)</li>
-                <li>DeFi protocols (Aave, PancakeSwap, Aerodrome)</li>
-                <li>Onchain / cross-chain data</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 md:py-32">
-        <div className="container">
-          <h2 className="section-title mb-4">How I Can Help</h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            I work with teams and organizations that need to build scalable systems, streamline operations, connect their data and processes, and make better decisions with reliable information.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Workflow Automation</h3>
-              <p className="text-muted-foreground">
-                Design and build workflows that handle intake, routing, classification, and routing logic. Structured outputs and clear decision trees.
-              </p>
-            </div>
-
-            {/* Service 2 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">CRM and Lifecycle Systems</h3>
-              <p className="text-muted-foreground">
-                Build multi-branch CRM automations, lifecycle triggers, and conditional logic that improve operational efficiency and data consistency.
-              </p>
-            </div>
-
-            {/* Service 3 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Data Analysis and Reporting</h3>
-              <p className="text-muted-foreground">
-                Design KPI dashboards, validate data quality, and translate business questions into actionable insights and stakeholder-ready reports.
-              </p>
-            </div>
-
-            {/* Service 4 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Business Process and Requirements Analysis</h3>
-              <p className="text-muted-foreground">
-                Translate ambiguous business needs into documented specifications. Work directly with stakeholders before any build starts.
-              </p>
-            </div>
-
-            {/* Service 5 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Internal Tool Prototyping</h3>
-              <p className="text-muted-foreground">
-                Rapid prototyping of internal tools, dashboards, and workflow apps. From concept to working prototype in days.
-              </p>
-            </div>
-
-            {/* Service 6 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Systems Integration</h3>
-              <p className="text-muted-foreground">
-                Connect platforms, sync data across systems, and build reliable integrations that keep teams aligned and data consistent.
-              </p>
-            </div>
-
-            {/* Service 7 */}
-            <div className="card-minimal">
-              <h3 className="text-xl font-bold mb-3">Product & App Design</h3>
-              <p className="text-muted-foreground">
-                Design and build full apps end to end: interface, interaction, and design system, not just the backend. For teams who want something people actually enjoy using.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
-
-      {/* Credentials Section */}
-      <section className="py-20 md:py-32 bg-secondary/30">
-        <div className="container max-w-2xl">
-          <h2 className="section-title mb-8">Education and Certifications</h2>
-          <div className="space-y-6">
-            <div className="card-minimal">
-              <h3 className="text-lg font-bold mb-1">B.A. Biblical Studies</h3>
-              <p className="text-accent font-semibold">Liberty University, 2022</p>
-            </div>
-            <div className="card-minimal">
-              <h3 className="text-lg font-bold mb-1">Google Digital Marketing and E-Commerce Certificate</h3>
-              <p className="text-accent font-semibold">Coursera, 2024</p>
-            </div>
-            <div className="card-minimal">
-              <h3 className="text-lg font-bold mb-1">Technical Certifications</h3>
-              <ul className="space-y-2 text-muted-foreground mt-3">
-                <li>SQL Fundamentals (2026)</li>
-                <li>Python Automation (2026)</li>
-                <li>Agentic AI Workflows (2026)</li>
-                <li>Generative AI for Automating Workflows (2026)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="divider"></div>
+      <img
+        src="/images/pixel-art/divider-strip.webp"
+        alt=""
+        aria-hidden="true"
+        className="w-full h-16 md:h-24 object-cover"
+      />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32">
@@ -827,11 +496,20 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="container text-center text-muted-foreground">
+      <footer className="relative border-t border-border py-14 overflow-hidden">
+        <img
+          src="/images/pixel-art/footer-band.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 0%, var(--background) 85%)" }} />
+        <div className="container relative text-center text-muted-foreground">
           <p>&copy; 2026 Peter Helm. Business Systems, Automation & Product Design.</p>
         </div>
       </footer>
+
+      <ScrollProgressPlant />
     </div>
   );
 }

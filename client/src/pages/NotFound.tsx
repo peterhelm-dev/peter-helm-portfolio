@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import { useLocation } from "wouter";
-import { PixelBush, PixelFlower, PixelTree } from "@/components/pixel-art/PixelSprites";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
@@ -13,18 +12,13 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-lg pixel-surface pixel-border">
+      <Card className="w-full max-w-lg pixel-border overflow-hidden p-0">
+        <img
+          src="/images/pixel-art/notfound-vignette.webp"
+          alt="A small pixel-art patch of bare soil with two tiny sprouts poking up"
+          className="w-full h-56 object-cover border-b-2 border-[var(--pixel-ink)]"
+        />
         <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center gap-3 mb-6">
-            <PixelTree className="h-10 w-auto" />
-            <PixelBush className="h-8 w-auto self-end" />
-            <PixelFlower className="h-8 w-auto self-end" />
-          </div>
-
-          <div className="flex justify-center mb-6">
-            <AlertCircle className="h-12 w-12 text-destructive" />
-          </div>
-
           <h1 className="text-3xl mb-4 text-foreground">404</h1>
 
           <h2 className="text-lg font-semibold mb-4 text-foreground">
