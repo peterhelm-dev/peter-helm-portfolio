@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Play } from "lucide-react";
 import { Link } from "wouter";
 import ThemeToggle from "@/components/ThemeToggle";
+import GhlGallery from "@/components/GhlGallery";
 
 export default function CrewCaseStudy() {
   return (
@@ -408,21 +409,9 @@ export default function CrewCaseStudy() {
         <section className="mb-16">
           <h2 className="text-lg md:text-xl mb-3">The Automations, In Practice</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Real screenshots from the working system, not mockups.
+            Screenshots from the working GoHighLevel build. <Link href="/work/ghl" className="text-accent underline">Read the full write-up.</Link>
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { image: "/images/crew/artifacts/zapier-automations.jpg", alt: "Zapier folder for The Crew listing four automations", caption: "The Crew's Zapier folder: CRM sync, the Housecall Pro import, the referral program email, and the Mailchimp review-tagging automation." },
-              { image: "/images/crew/artifacts/ai-sales-bot-config.jpg", alt: "GoHighLevel conversation AI bot configuration", caption: "Configuring the AI text-message assistant in GoHighLevel: its persona, its objective (get the customer to book), and limits like a response cap and a wait time so it never feels spammy." },
-            ].map((item) => (
-              <div key={item.image} className="card-minimal">
-                <div className="mb-4 bg-muted pixel-frame">
-                  <img src={item.image} alt={item.alt} className="w-full h-auto" />
-                </div>
-                <p className="text-sm text-muted-foreground">{item.caption}</p>
-              </div>
-            ))}
-          </div>
+          <GhlGallery />
         </section>
 
         {/* Customer Experience Gallery */}

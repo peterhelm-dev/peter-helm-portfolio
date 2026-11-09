@@ -302,6 +302,11 @@ export default function Home() {
                   <Link href="/work/crew" asChild>
                     <Button size="lg" className="text-base px-8 py-6 pixel-border">Explore Full Case Study with Diagrams →</Button>
                   </Link>
+                  <div className="mt-4">
+                    <Link href="/work/ghl" className="text-white/80 font-semibold hover:text-white underline">
+                      See the GoHighLevel build in screenshots
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
